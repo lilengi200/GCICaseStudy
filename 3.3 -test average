@@ -1,0 +1,21 @@
+#include <iostream> 
+#include <iomanip> 
+using namespace std;
+
+int main()
+{
+    //3.3 - test average Coded by: Quanysha Jones
+    //write a program that ask for 5 test scores
+    
+    double Test1, Test2, Test3, Test4, Test5, TestAvg;
+    
+    cout << "You have 5 test scores, what are they: ";
+    cin >> Test1 >> Test2 >> Test3 >> Test4 >> Test5;  
+    
+    TestAvg = (Test1 + Test2 + Test3 + Test4 + Test5)/ 5; //calculate average
+    
+    cout << setprecision(1) << fixed; 
+    cout <<"\nThe average for all your test score is:"<< TestAvg; 
+
+    return 0;
+}
