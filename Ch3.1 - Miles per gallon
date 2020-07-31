@@ -1,0 +1,21 @@
+#include <iomanip> 
+using namespace std;
+
+int main()
+{
+    //3.1 - Miles Per Gallon Coded by: Quanysha Jones
+    //Calculates a car's gas mileage
+    
+    double NumGallon, NumMiles , PerGallon;
+    
+    cout << "Enter the number of gallons of gas the car can hold \nand number of ";
+    cout << "miles it can be driven on a full tank: ";
+    cin >> NumGallon >> NumMiles; // gets gallons and miles 
+    
+    PerGallon = NumMiles/NumGallon; //calculate per gallons
+    
+    cout <<"\nThe number of miles that may be driven per gallon";
+    cout <<"\nper gallon is; " << PerGallon;
+
+    return 0;
+}
