@@ -1,0 +1,23 @@
+#include <iostream>
+#include <iomanip> 
+using namespace std;
+
+int main()
+{
+    //3.2 - Stadium Seating
+    //write a program that ask how many tickets of each class is being bought
+    //display the amount of income from ticket sales
+    
+    double ClassA = 15, ClassB = 12, ClassC = 9, TotIncome, TClassC, TClassB, TClassA;
+    
+    cout << "Enter the number of tickets for each Class";
+    cout << "\nyou want to buy:";
+    cin >> TClassA >> TClassB >> TClassC;  
+    
+    TotIncome = TClassC*ClassC + TClassB*ClassB + TClassA*ClassA; //calculate per gallons
+    
+    cout << setprecision(2) << fixed; 
+    cout <<"\nThe Amount of income generated from ticket sales was " << setw(2) << TotIncome;
+
+    return 0;
+}
