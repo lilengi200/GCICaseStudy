@@ -1,0 +1,31 @@
+#include <iostream>
+#include <iomanip> 
+using namespace std;
+
+int main()
+{
+    //A case Study program - Coded by Quanysha Jones
+    //builds custom-design wooden crates
+    //GCI cost 0.23 per cubic foot to build crates
+    //charge customer 0.50 per cubic foot for crate
+    //program needs: calculate volume in cubic feet, cost, customer price, profit per crate
+    
+    double GCIcost = 0.23, CustCost = 0.50, volume, Length, Width, Height, profit;
+    
+    cout << "What is the length, width & height in cubic feet?";
+    cin >> Length >> Width >> Height; // gets l*w*h respectfully
+    
+    volume = Length * Width * Height; //calculate volume
+    
+    GCIcost = GCIcost * volume; //cost for company 
+    
+    CustCost = CustCost * volume; // cost for customer
+    
+    profit = CustCost - GCIcost; // per crate profit 
+    cout << setprecision(2) << fixed; // set my decimal point
+    cout <<"\nIt cost GCI $" << GCIcost << " for each crate. ";
+    cout <<"\nIt cost our customers $" << CustCost << " to get it from us.";
+    cout <<"\nWe will profit $" << profit << " per crate. ";
+
+    return 0;
+}
