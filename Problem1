@@ -1,0 +1,42 @@
+#include <iostream> 
+#include <iomanip> 
+using namespace std;
+
+int main()
+{
+    //Valencia College Invoice - Coded by: Quanysha Jones
+    //This problem was given from a classmate who took cpp with another teacher.
+    //At VC, a student must take exactly two courses. the purpose of this assignment is to 
+    //construct a fee invoice for a student. this requires the input of student's id as a 
+    //an integer, the two course numberws as integer and the credit hours for
+    //each course. it cost $120.25 per credit hour in addition to $35.00 charged for
+    //health and id services. after inputting all the necessary data, a fee invoice.
+    int Course1, Course2;
+    double CreditHour = 120.25, HealthID = 35, StudentID, CourseHour1, CourseHour2, TotalCourse1, TotalCourse2, TotalAmount; 
+    
+    cout << "Enter the Student ID:";
+    cin >> StudentID;
+    cout << "\nEnter the course ID and credit hour for each course (example 5665 3):";
+    cin >> Course1 >> CourseHour1 >> Course2 >> CourseHour2; 
+    
+    TotalCourse1 = CourseHour1*CreditHour + HealthID;
+    TotalCourse2 = CourseHour2*CreditHour + HealthID;
+    TotalAmount = TotalCourse2 + TotalCourse1;
+    
+    cout << "\nValencia College";
+    cout << "\n1800 S Kirkman Rd";
+    cout << "\nOrlando FLorida 32811";
+    cout << "\n*************************";
+    cout << setprecision(2) << fixed;
+    cout << "\nFee Invoice Prepared for Student V" << StudentID;
+    cout << "\n1 Credit Hour = $" << CreditHour ;
+    cout << "\nCRN      Credit Hour      Total Amount\n" ;
+    cout << Course1 << "      "<< CourseHour1 << "          "<< TotalCourse1;
+    cout << "\n";
+    cout << Course2 << "      "<< CourseHour2 << "          "<< TotalCourse2;
+    cout << "\n";
+    cout << "Total Payment = $" << TotalAmount ;
+    cout << "\nThis amount includes all fees!";
+
+    return 0;
+}
