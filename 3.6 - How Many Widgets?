@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+    //How Many Widgets - Coded by: Quanysha Jones
+    //The Yukon widget company manufactures widgets that weigh 9.2 pounds each. 
+    //write a program that calculates how many widgets are stacked on a pallet, based on 
+    //the total weight of the pallet. the program should ask the user how much the pallet 
+    //weighs by itself and with the widgets stacked on it. it should then calculate and 
+    //display the number of widgets stacked on the pallet.
+    
+    double TotalWeight, YukonWidgets = 9.2, TotalPallet;
+    
+    cout << "This program is going to calculate how many widgets are stacked on a pallet";
+    cout << ", \nbased on the total weight. So what is the Total weight of the pallet?";
+    cin >> TotalWeight;
+    
+    TotalPallet = TotalWeight/YukonWidgets;
+    cout << setprecision(2) << fixed;
+    cout << "The total number of widgets stacked on the pallet are " << TotalPallet; 
+   
+    return 0;
+}
