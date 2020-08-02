@@ -1,0 +1,44 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+    //Box Office - Coded by: Quanysha Jones
+   //A movie theater only keep a percentage of the revenue earned from tickets sales. 
+   //The remainder goes to the movie distrubutor. write a program that calculates a theater's
+   //gross and net box office profit for a night. the program should ask for the names of 
+   //the movie, and how many adult and child tickets were sold. 
+   //(the price of an adult ticket is $6.00 and a child's ticket is $3.00.) 
+   //Assume the theater keeps 20% of the gross box office profit
+   
+    double AdultPrice = 6 , ChildPrice = 3, AdultTotal, ChildTotal, NetProfit, PaidDistributor,GrossProfitTickets; 
+    const int size = 80; //size of the line
+    char MovieName[size]; //read a line
+    int AdultT, ChildT;
+    
+    cout << "Welcome To the Box Office here in Orlando, FLorida";
+    cout << "\nWhat movie are you here to see?";
+    cin.getline(MovieName,30); //capture movie name as a line
+    cout << "\nHow many Adult and Child tickets were sold?";
+    cin >> AdultT >> ChildT;
+    
+    AdultTotal = AdultT * AdultPrice; 
+    ChildTotal = ChildT * ChildPrice;
+    GrossProfitTickets = AdultTotal + ChildTotal;
+    NetProfit = GrossProfitTickets*0.2; //20% of the gross box office
+    PaidDistributor = GrossProfitTickets - NetProfit ; 
+    
+    cout << setprecision(2) << fixed;
+    
+    cout << "\nMovie Name:" << "                " << " ''" << MovieName << "'' ";
+    cout << "\nAdult Tickets Sold:" << "               " << AdultT;
+    cout << "\nChild Tickets Sold:" << "               " << ChildT;
+    cout << "\nGross Box Office Profit:" << "         $" << GrossProfitTickets;
+    cout << "\nNet Box Office Profit:" << "           $" << NetProfit;
+    cout << "\nAmount Paid to Distributor:" << "       $" << PaidDistributor;
+
+    return 0;
+}
