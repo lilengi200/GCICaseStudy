@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+    //Average Rainfall - Coded by: Quanysha Jones
+   // Write a program that calculates the average rainfall for three months. 
+   //the program should ask the user to enter the name of each month, such as June or July 
+   //and the amount of rain (in inches) that fell each month. the program should display a 
+   //message similar to the following: The average rainfall for June, July, and August is 6.72 inches.
+    
+    string Month1, Month2, Month3; 
+    double Rainfall1, Rainfall2, Rainfall3, TotalRainfall, AvgRainfall;
+    
+    cout<< "Let's calculate the average rainfall for three months (month rainfall):";
+    cin >> Month1 >> Rainfall1 >> Month2 >> Rainfall2 >> Month3 >> Rainfall3;
+    
+    TotalRainfall =Rainfall3 + Rainfall2 + Rainfall1;
+    AvgRainfall = TotalRainfall/3; 
+    
+    cout << setprecision(2) << fixed;
+    cout << "The average rainfall for " << Month1 << ", " << Month2 << ", and " << Month3;
+    cout << "\n is " << AvgRainfall << " inches";
+
+    return 0;
+}
