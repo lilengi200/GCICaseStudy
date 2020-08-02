@@ -1,0 +1,41 @@
+
+#include <iostream> 
+#include <iomanip> 
+#include <cmath> 
+using namespace std;
+
+int main()
+{
+    //Level Access Pt2- Coded by: Quanysha Jones
+    //Stewie has decided to leave the Griffin Famil and attend college. He has found
+    //out that although he has vast knowledge, he still has to take perquisite courses 
+    //before he takes the advance courses. please build a program using if statements and 
+    //or nested if statement (if neccessary) to help him in his quest to get a degree. 
+    //The user will input the level/stage of Stewie's achievements. 
+    //if stewie is a level 3, then he can take all of level one and two classes.
+    //Use only switch statements
+    
+    int Level; 
+    
+    cout << "You have to take perquisite classes before taking advance courses..";
+    cout << "\nThere are 3 Levels Accesses, Which level are you?";
+    cin >> Level;
+    
+    switch (Level)
+    {
+        case 1: cout << "\nYou're on Level 1..These are the classes you need to take..";
+                cout << "\nIntro to Programming Concepts, College Alegbra, Eng Comp I";
+                break;
+        case 2: cout << "\nYou're on Level 2..These are the classes you need to take..";
+                cout << "\nJava Programming, Trigonometry, Eng Comp II";
+                break;
+        case 3: cout << "\nYou're on Level 3..You can take Level one & two courses..";
+                cout << "\nLevel 1:";
+                cout << "\nIntro to Programming Concepts, College Alegbra, Eng Comp I";
+                cout << "\nLevel 2:";
+                cout << "\nJava Programming, Trigonometry, Eng Comp II";
+                break;
+        default : cout << "\nYou did not enter a value of 1, 2, 3";        
+    }
+    return 0;
+}
