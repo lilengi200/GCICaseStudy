@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+    //3.8 How much insurance? - Coded by Quanysha Jones
+    //Many fanancial experts advise that property owners should insure their homes or 
+    //buildings for at least 80% of the amount it would cost to replace the structure. 
+    //write a program that asks the user to enter the replacement cost of a building and 
+    //then displays the minimum amount of insurance he or she should nuy for the property.
+    
+    double MinAmount,ReplacementBuilding, InsurePercentage = 0.8;
+    
+    cout<<"Enter the replacement cost of a building:";
+    cin >> ReplacementBuilding;
+    
+    MinAmount = ReplacementBuilding * InsurePercentage;
+    cout << setprecision(2) << fixed;
+    cout << "The minimum amount of insurance you should buy for the propery is ";
+    cout << "\n$" << MinAmount;
+
+    return 0;
+}
