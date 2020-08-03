@@ -1,0 +1,30 @@
+
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+    //How Many Calories? - Coded by: Quanysha Jones
+    //A bag of cookies hold 40 cookies. the calorie information on the bag claims 
+    //that there are 10 servings in the bag and that a serving equals 300 claories. 
+    //Write a program that asks the user input how many cookies he or she actually 
+    //ate and then reports how many total calories were consumed.
+    
+    int BagOfCookies = 40, ServingsPerBag = 10, CaloriesPerServings = 300, CookiesPerServings, TotalCalories, CaloriesPerCookie, TotalCookies;
+    
+    cout << "How many cookies did you actually eat?";
+    cin >> TotalCookies; 
+    
+    CookiesPerServings = BagOfCookies / ServingsPerBag; //how many cookies in 1 serving  
+    
+    CaloriesPerCookie = CaloriesPerServings/CookiesPerServings ; //how many calories per cookie
+    
+    TotalCalories = TotalCookies * CaloriesPerCookie; 
+    
+    cout << "Total Calories you consumed was " << TotalCalories ;
+   
+    return 0;
+}
