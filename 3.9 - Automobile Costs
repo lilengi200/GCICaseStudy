@@ -1,0 +1,32 @@
+
+
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+    //3.9 - Automobile Cost - Coded by Quanysha Jones
+    //write a program that asks the  user to enter the monthly cost for the following
+    //expenses incurred from operating his or her automobile: Loan Payment, insurance, gas, oil
+    //tires, and maintenace. the program should then display the total monthly cost of these
+    //expenses.
+    
+    double LoanPayment, Insurance, Gas, Oil, Tires, Maintenace, TotalMonthly, TotalAnnual;
+    
+    cout <<"Enter the monthly cost for the following expenses incurred from operating your";
+    cout <<"\n automobile: Loan Payment, Insurance, Gas, Oil, Tires, and maintenace.";
+    cin >> LoanPayment >> Insurance >> Gas >> Oil >> Tires >> Maintenace;
+    
+    TotalMonthly = LoanPayment + Insurance + Gas + Oil + Tires + Maintenace;
+    TotalAnnual = TotalMonthly * 12; //calendar amount of expenses
+    
+    
+    cout << setprecision(2) << fixed;
+    cout << "Your Total Monthly expense is $" << TotalMonthly;
+    cout << "\nand after 12 months your Total Annual expenses are $" << TotalAnnual;
+
+    return 0;
+}
