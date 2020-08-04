@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+    //3.11 - Currency - Coded by Quanysha Jones
+    //Write a program that will convert US dollar amount to Japanese Yen and to Euros. 
+    //1 dollar = 106.48 Yen & 1 dollar = 0.6936 Euros
+    //format your currency amounts in fixed-point notation, with two decimal places of precision, 
+    //and be sure the decimal point is always displayed
+    
+    double Yen = 106.48, Euros = 0.85, Convert2Yen,Convert2Euros, USDollars;
+    
+    cout << "Enter an amount of money in US Dollars and this program will convert it to";
+    cout << "\nJapanese Yen and Euros:";
+    cin >> USDollars;
+    
+    Convert2Yen = USDollars * Yen;
+    Convert2Euros = USDollars * Euros;
+    
+    cout << setprecision(2) << fixed;
+    cout << "\nJapanese Yen: " << Convert2Yen;
+    cout << "\nEuros: " << Convert2Euros;
+    
+    return 0;
+}
