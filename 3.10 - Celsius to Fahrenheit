@@ -1,0 +1,24 @@
+
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+    //3.10 - Celsius to Fahrenheit- Coded by Quanysha Jones
+    //Write a program that converts Celsius temp to Fahrenheit Temperatures. 
+    
+    int Celsius, Fahrenheit, CurrentTemp;
+    
+    cout << "This program will convert Celsius to Fahrenheit";
+    cout << "\nWhat is the current temperature in Celsius?";
+    cin >> Celsius;
+    
+    Fahrenheit = 9/5 *Celsius +32; 
+    
+    cout << "\nYou entered " << Celsius << " degrees Celsius and that is " << Fahrenheit << " degrees in Fahrenheit.";
+
+    return 0;
+}
