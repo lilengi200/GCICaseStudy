@@ -1,0 +1,44 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+    //3.12 - Monthly Sales Tax - Coded by Quanysha Jones
+    //A retail company must file a monthly sales report listing the sales for the month 
+    //and the amount of sales tax colledted. write a program that asks for the month, 
+    //the year and the total amount collected at the cash register (that is , sales plus tax).
+    //Assume the state sales tax is 4% and the county sales tax is 2%. If the total amount collected 
+    //is known and the total sales tax is 6%, the amount of product sales may be calculated as s= T/1.06. 
+    //s is the prodcut sales and t is the total income (product sales plus sales tax). 
+    
+    double TotalCollected, Sales, StateSalesTax, CountySalesTax,TotalSalesTax; 
+    int Year;
+    string Month;
+    
+    cout << "This program will calculate your monthly sales tax";
+    cout << "\nWhat month & year are we doing the report for? ";
+    cin >> Month >> Year;
+    cout << "\nEnter the total amonth collected at the cash register, include sales plus sales tax: ";
+    cin >> TotalCollected;
+    
+    Sales = TotalCollected/1.06; //product sales
+    CountySalesTax = Sales *0.02; //county taxes are 2%
+    StateSalesTax = Sales *0.04; //state taxes are 4%
+    TotalSalesTax = CountySalesTax + StateSalesTax; //essentally will equal to 6% 
+
+    
+    cout << setprecision(2) << fixed;
+    cout << "Month: " << Month << "," << Year;
+    cout << "\n--------------------------";
+    cout << "\nTotal Collected:" << setw(5) << "$" << TotalCollected;
+    cout << "\nSales:" << setw(15) << "$" << Sales ;
+    cout << "\nCounty Sales Tax:" << setw(4) << "$" << CountySalesTax;
+    cout << "\nState Sales Tax:" << setw(5) << "$" << StateSalesTax;
+    cout << "\nTotal Sales Tax:" << setw(5) << "$" << TotalSalesTax;
+    
+    
+    return 0;
+}
