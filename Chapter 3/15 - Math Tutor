@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+using namespace std;
+
+int main()
+{
+    //3.15 - Math Tutor - Coded by Quanysha Jones
+    //write a program that can be used as a math tutor for a young student. 
+    //the program should display two random numbers to be added. the program should then 
+    //pause while the student works on the program. when the student is ready to check the answer, 
+    //he or she can press any key and the program will display the correct solution
+    
+    int RandomNum2, RandomNum1, RandomAnswer;
+    unsigned seed = time(0); //get system time
+    
+    srand(seed); //makes sure i get a random number everytime the system restarts
+    
+    RandomNum1 = 1 + rand() % 100000; //set the max upper range to 100,000
+    RandomNum2 = 1 + rand() % 100000; //wont got past that value
+    
+    cout << "Hi, I'm your math tutor. This program should add any two random numbers together..";
+    cout << "\nLet's see if it works. I'm going to display two random numbers now... ";
+    cout << "\n" << RandomNum1;
+    cout << "\n + " << RandomNum2;
+    cout << "\n-----------";
+    
+    //program will pause here
+    cout << "\n\nPress the ENTER key to let me know you're ready for the answer..";
+    cin.get();
+    
+    RandomAnswer = RandomNum1+ RandomNum2;
+    
+    cout << "\n" << RandomNum1;
+    cout << "\n+ " << RandomNum2;
+    cout << "\n-----------" ;
+    cout << "\n" << RandomAnswer;
+    
+    return 0;
+}
