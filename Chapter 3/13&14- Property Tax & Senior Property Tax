@@ -1,0 +1,55 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+    //3.13- Property taxes - Coded by Quanysha Jones
+    //A county collets Property taxes on the assessment value of property, 
+    //which is 60% of the property's actual value. if an ace land is valued at $10,000, 
+    //its assessment value is $6000. the property tax is then 0.64 cents for each $100 of 
+    //the assessment value. the tax for the acre assessed at $6000 will be $38.40. 
+    //Write a program that asks for the actual value of a piece of Property and displays 
+    //the assesment value and property tax.
+    
+    //& 3.14 - Senior Citizen Property Tax - Coded by Quanysha Jones
+    //Madison county provides a $5,000 homeowner exemption for its senior citizens. 
+    //for example, if a senior;s house is valued at $158,000 its assessed value would be 
+    //$94,800, as explained above. however, he would only pay tax on $89,800. At last year's 
+    //tax rate of $2.64 for each $100 of assessed value, the property tax would be $2,370.72.
+    //in addiction to the tax break, senior citizens are allowed to pay their propertytax in 
+    //four equal payments. the quarterly payment due on this property would be $592.68. 
+    //Write a program that asks the user to input the actual value of a piece of property 
+    //and the current tax rate for each $100 of assed value. the program should then 
+    //calculate and report how much annual property tax a senior homeowner will be charged 
+    //for this property and what the quarterly tac bill will be.  
+    
+    double ActualValue, AssessmentValue, CurrentTax, QuarterlyPayments,AssessmentValueRate = 0.6,Propertytax,PropertytaxRate, SeniorExemptionValue; 
+    int SeniorExemption = 5000;
+    
+    cout << "\nEnter the actual value of a piece of property: ";
+    cin >> ActualValue;
+    
+    AssessmentValue = ActualValue * AssessmentValueRate; //assessment value of Property
+    Propertytax = (AssessmentValue/100 ) * 0.64; //property tax is 0.64 for each $100 of the assesment value
+    cout << setprecision(2) << fixed;
+    cout << "\nThe assessment value for this property is $" << AssessmentValue << " and the property";
+    cout << "\ntaxes are $" << Propertytax;
+    
+    cout << "\nNow lets figure out the Property taxes for our Senior Citizens.";
+    cout << "\nEnter the actual value of a piece of property and the current tax rate for each $100 of assessed value: ";
+    cin >> ActualValue >> CurrentTax;
+    
+    AssessmentValue = ActualValue * AssessmentValueRate; //
+    SeniorExemptionValue = AssessmentValue - SeniorExemption; // pay taxes on this value for seniors only
+    Propertytax = (SeniorExemptionValue/100 ) * CurrentTax; //new senior assessed rate placed by user
+    
+    QuarterlyPayments = Propertytax/4; //Quarterly Payments due on this property
+    cout << setprecision(2) << fixed;
+    cout << "\nThe annual property tax a senior homeowner will be charged for this property is $" << Propertytax;
+    cout << " and your Quarterly tax bill will be $" << QuarterlyPayments;
+    
+    return 0;
+}
