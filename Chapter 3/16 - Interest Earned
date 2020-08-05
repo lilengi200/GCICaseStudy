@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+using namespace std;
+
+int main()
+{
+    //3.16 - Interest Earned - Coded by Quanysha Jones
+    //assuming there are no deposits other than the orignal investment, the balance in a 
+    //saving account after one year may be calculated. Principal is the palance in the savings 
+    //account, rate is the interest ratem and T is the number of times the interest is compounded
+    //during a year (T is 4 if the interest is compounded quarterly). write a program that asks 
+    //for the principal, the interest rate, and the number of times the interest is compounded.
+    
+    double Amount, Principal, InterestRate, Interest;
+    int NumTimes;
+    
+    cout << "\nThis program will calculate the interest earned..";
+    cout << "\nEnter the principal, the interest rate, and the number of times the interest is compounded: ";
+    cin >> Principal >> InterestRate >> NumTimes;
+    
+    Amount = Principal * pow((1 + InterestRate/NumTimes),NumTimes); //balance in savings account after 1 year
+    Interest = Amount - Principal;
+    
+    cout << setprecision(2) << fixed;
+    cout << "\n\nInterest Rate: " << setw(10) << InterestRate << "%";
+    cout << "\nTimes compounded: " << setw(6) << NumTimes;
+    cout << "\nPrincipal: \t$" << setw(6) << Principal;
+    cout << "\nInterest: \t$" << setw(6) << Interest;
+    cout << "\nAmount in Savings: \t$" << setw(6) << Amount;
+    
+    return 0;
+}
+    
