@@ -1,0 +1,57 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+using namespace std;
+
+int main()
+{
+    //4.2 - Roman Numeral Converter - Coded by Quanysha Jones
+    //write a program that asks user to enter a number within the range of 1 through 10. 
+    //use a switch statment to display the roman numberal verison of that number. 
+    //input vaildation: do not accept a number less than 1 or greater than 10. 
+    
+    int Num; 
+    
+    cout << "Enter a number within the range of 1 through 10 and this program will" << endl;
+    cout << "convert it to Roman numberal: " << endl; 
+    cin >> Num;
+    
+    switch (Num)
+    {
+        case 1: cout << "The number you entered was " << Num << " and it is I in Roman Numeral" << endl;
+                break;
+        case 2:cout << "The number you entered was " << Num << " and it is II in Roman Numeral" << endl;
+                break;
+        case 3:cout << "The number you entered was " << Num << " and it is III in Roman Numeral" << endl;
+                break;
+        
+        case 4:cout << "The number you entered was " << Num << " and it is IV in Roman Numeral" << endl;
+                break;
+        
+        case 5:cout << "The number you entered was " << Num << " and it is V in Roman Numeral" << endl;
+                break;
+        
+        case 6:cout << "The number you entered was " << Num << " and it is VI in Roman Numeral" << endl;
+                break;
+        
+        case 7:cout << "The number you entered was " << Num << " and it is VII in Roman Numeral" << endl;
+                break;
+        
+        case 8:cout << "The number you entered was " << Num << " and it is VIII in Roman Numeral" << endl;
+                break;
+        
+        case 9:cout << "The number you entered was " << Num << " and it is VIIII in Roman Numeral" << endl;
+                break;
+        
+        case 10:cout << "The number you entered was " << Num << " and it is X in Roman Numeral" << endl;
+                break; 
+        
+        default:cout << "You entered a number that was not in the range of 1 and 10" << endl;
+                cout << "restart the program and enter the number within the range" << endl;
+                break;
+    }
+    return 0;
+}
+    
