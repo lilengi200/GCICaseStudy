@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+using namespace std;
+
+int main()
+{
+    //4.5 - Body Mass index - Coded by Quanysha Jones
+    //write a program that calculates and displays a person's body mass index (BMI). 
+    //the BMI is often used to determine wheather a person with a sedentary lifestyle is overweight
+    //or underweight for his or her height. a person's bmi is calculated with the following formula:
+    //BMI = weight * 703/height^2 where weight is measured in pounds and height is measured in inches.
+    //the program should idsplay a message indicationg wheather the person has optimal weight, is 
+    //underweight, or is overweight. a sedentary person's weight is considered to be optimal 
+    //if his or her BMI is between 18.5 and 25. if the BMI is less than 18.5, the person is 
+    //considered to be underweight. if the BMI value is greater than 25, the person is considered
+    //to be overweight.
+    
+    double BMI, weight; 
+    int height;
+    
+    cout << "This program will calculate and display a person's body mass index (BMI)." << endl;
+    cout << "The BMI will determine if the person is overweight or underheight for their height" << endl;
+    cout << "Enter your weight (lb) and height (in): " << endl;
+    cin >> weight >> height; 
+    
+    BMI = weight * 703/pow(height,2); //BMI = weight * 703/height^2
+    
+    if (BMI >= 18.5 && BMI <= 25)//BMI is between 18.5 and 25, they are normal
+    {
+        cout << "This person is considered optimal for their weight and height" << endl;
+    }
+    else if (BMI < 18.5)
+    {
+        cout << "This person is considered underweight based on their BMI = " << BMI << endl;
+    }
+    else
+    {
+        cout << "This person is consided overweight based on their BMI = " << BMI << endl;
+    }
+    return 0;
+}
+    
