@@ -1,0 +1,41 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+using namespace std;
+
+int main()
+{
+    //4.3 - Magic Dates- Coded by Quanysha Jones
+    //The date June 10, 1960 is special becasue when we write in the following format, 
+    //the month times the day equals the year. write a program that ask the user to enter a 
+    //month (in numberic form), a day and a two digit year. the program should then 
+    //determine whether the month times the day is equal to the year. if so, it should display
+    //message saying the date is magic. otherwise it should display a message saying the date 
+    //is not magic.
+    
+    int month, day, year; 
+    
+    cout << "The date June 10, 1960 is special becasue when we write in the following format: " << endl;
+    cout << "6/10/60 the month times the day equals the year. Cool right?..You try.." << endl;
+    cout << "Enter a month (in numeric form), a day, and a two-digit year: " << endl;
+    cin >> month >> day >> year; 
+    
+    if ((month > 12) || (day > 31) || (year > 99))  //(month > 13) || (day > 31) || (year > 99) not in correct format
+    {
+        cout << "Not vaild dates. Restart program and try again." << endl;
+    }
+    else if (year == month * day )
+    {
+        cout << "\aYep, it's magic" << endl;
+    }
+    else
+    {
+        cout << "Sorry, no magic to see here" << endl;
+    
+    }
+    
+    return 0;
+}
+    
