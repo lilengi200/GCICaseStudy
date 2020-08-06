@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+using namespace std;
+
+int main()
+{
+    //4.4 - Areas of Rectangles- Coded by Quanysha Jones
+    //The area of a rectangle is the rectangle's length times its width. 
+    //write a program that asks for the length and width of two rectangles. the program 
+    //should tell the user which retangle has the greater area, or if the ares are the same.
+    
+    double AreaRec1, AreaRec2, Length1, Length2, Width1, Width2;
+    
+    cout << "This program should tell you which retangle has the greater area..Let's see if it works.." << endl;
+    cout << "Enter the length and width of two rectangles: " << endl;
+    cin >> Length1 >> Width1 >> Length2 >> Width2;
+    
+    AreaRec1 = Length1 * Width1; 
+    AreaRec2 = Length2 * Width2; 
+    
+    if (AreaRec1 > AreaRec2) //area 1 is greater
+    {
+        cout << "You entered " << Length1 << " & " << Width1 << endl;
+        cout << "The area = " << AreaRec1 << ", it's greater than " << AreaRec2 << endl;
+    }
+    else if (AreaRec2 > AreaRec1) //area 2 is greater
+    {
+        cout << "You entered " << Length2 << " & " << Width2 << endl;
+        cout << "The area = " << AreaRec2 << ", it's greater than " << AreaRec1 << endl;
+    }
+    else
+    {
+        cout << "The area is the same!!!" << endl;
+    }
+    return 0;
+}
+    
