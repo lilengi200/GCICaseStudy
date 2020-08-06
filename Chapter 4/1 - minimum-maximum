@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    //4.1 - Interest Earned - Coded by Quanysha Jones
+    //4.1 - Minimum/Maximum - Coded by Quanysha Jones
     //write a program that asks the user to enter two numbers. 
     //the program should use the conditional operator to determine which number is the 
     //smaller number and which is the larger
