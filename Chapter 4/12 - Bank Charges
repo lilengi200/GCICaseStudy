@@ -1,0 +1,102 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+using namespace std;
+
+int main()
+{
+    //4.12 - Book Club Points - Coded by Quanysha Jones
+    //A bank charges $10/month plus the following check fees for a commercial checking account: 
+    //$0.10 each for fewer than 20 checks, $0.08 = 20-39 checks, $0.06 = 40-59 checks, $0.04 each for 60 or more checks
+    //the bank also charges an extra $15 if the balance of the account falls below $400 (before any checks fees are applied)
+    //write a program that asks for the beginning balance and the number of checks written. 
+    //compute and display the bank's services fees for the month. 
+    
+    int BeginningBalance, Threshold = 15, NumOfCheckWritten;
+    double FinalBalance;
+    
+    cout << "\tBank of C++ Service Fees" << endl;
+    cout << "\t*************************" << endl;
+    cout << "The $10 per month plus the following check fees" << endl;
+    cout << "Per check Fee \t \t Number of Checks " << endl;
+    cout << "**************\t \t******************" << endl;
+    cout << "$0.10 each    \t  \tfewer than 20 checks" << endl;
+    cout << "$0.08 each    \t  \t 20 - 39 checks" << endl;
+    cout << "$0.06 each    \t  \t 40 - 59 checks" << endl;
+    cout << "$0.04 each    \t  \t 60 or more checks" << endl;
+    cout << "\n" << endl;
+    cout << "This program will display the bank's services fees for the month..What is your" << endl;
+    cout << "beginning balance and the number of checks written? " << endl;
+    cin >> BeginningBalance >> NumOfCheckWritten;
+    
+    
+    if (BeginningBalance < 400 && BeginningBalance >= 0 && NumOfCheckWritten < 20) // balance is less than $400 && checks written are less than 20
+    {
+        FinalBalance = (BeginningBalance - Threshold) - NumOfCheckWritten*0.10; 
+        cout << "Your balance is less than $400 before any check fees are applied so your" << endl;
+        cout << "new balance is $" << FinalBalance << endl; 
+    }
+    else if (BeginningBalance >= 400 && NumOfCheckWritten < 20) // balance is more than $400 && checks written are less than 20
+    {
+        FinalBalance = BeginningBalance - (NumOfCheckWritten*0.10); 
+        cout << "Your balance is more than $400 before any check fees are applied so your" << endl;
+        cout << "new balance is $" << FinalBalance << endl;
+    }
+    else if (BeginningBalance < 400 && BeginningBalance >= 0 && NumOfCheckWritten >= 20 && NumOfCheckWritten <=39) // balance is less than $400 && checks written are 20-39
+    {
+        FinalBalance = (BeginningBalance - Threshold) - NumOfCheckWritten*0.08; 
+        cout << "Your balance is less than $400 before any check fees are applied so your" << endl;
+        cout << "new balance is $" << FinalBalance << endl;
+    }
+    else if (BeginningBalance < 400 && BeginningBalance >= 0 && NumOfCheckWritten >= 40 && NumOfCheckWritten <=59) // balance is less than $400 && checks written are 40-59
+    {
+        FinalBalance = (BeginningBalance - Threshold) - NumOfCheckWritten*0.06; 
+        cout << "Your balance is less than $400 before any check fees are applied so your" << endl;
+        cout << "new balance is $" << FinalBalance << endl;
+    }
+    else if (BeginningBalance < 400 && BeginningBalance >= 0 && NumOfCheckWritten >= 60)// balance is less than $400 && checks written are 60 or more
+    {
+        FinalBalance = (BeginningBalance - Threshold) - NumOfCheckWritten*0.04; 
+        cout << "Your balance is less than $400 before any check fees are applied so your" << endl;
+        cout << "new balance is $" << FinalBalance << endl;
+    }
+    else if (BeginningBalance >= 400 && NumOfCheckWritten >= 20 && NumOfCheckWritten <=39)
+    {
+        FinalBalance = BeginningBalance - NumOfCheckWritten*0.08; 
+        cout << "Your balance is more than $400 before any check fees are applied so your" << endl;
+        cout << "new balance is $" << FinalBalance << endl;
+    }
+    else if (BeginningBalance >= 400 && NumOfCheckWritten >= 40 && NumOfCheckWritten <=59)
+    {
+        FinalBalance = BeginningBalance - NumOfCheckWritten*0.06; 
+        cout << "Your balance is more than $400 before any check fees are applied so your" << endl;
+        cout << "new balance is $" << FinalBalance << endl;
+    }
+    else if (BeginningBalance >= 400 && NumOfCheckWritten >= 60)
+    {
+        FinalBalance = BeginningBalance - NumOfCheckWritten*0.04; 
+        cout << "Your balance is more than $400 before any check fees are applied so your" << endl;
+        cout << "new balance is $" << FinalBalance << endl;
+    }
+    else if (BeginningBalance < -1)
+    {
+        cout << "You have entered a negative balance. Restart program and try again!" << endl;
+    }
+    else
+    {
+        cout << "Invaild written check amount.Restart program and try again!" << endl;
+    }
+    return 0;
+
+}  
