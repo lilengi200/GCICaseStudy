@@ -1,0 +1,47 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+using namespace std;
+
+int main()
+{
+    //4.11 - Book Club Points - Coded by Quanysha Jones
+    //Serendipity bookseller has a book club that awards points to its customer based on the 
+    //number of books purchased each month. the points are awarded as following. 
+    //0 books = 0 points, 1 book = 5 points, 2 books = 15 points, 3 books = 30 points , 
+    //4 or more = 60 points. write a program that ask the user to enter the number of books 
+    //that he or she has purchased this month and then display the number of points awarded.
+    
+    int NumOfBooks, PointsPerBook;
+    
+    cout << "This program will ask you to enter the number of books you purchased this month " << endl;
+    cout << "and then display the number of points awarded. How mand books did you purchase? " << endl;
+    cin >> NumOfBooks;
+    
+    if (NumOfBooks == 1)
+    {
+        cout << "You purchase " << NumOfBooks << " so you have earned 5 points" << endl;
+    }
+    else if (NumOfBooks == 2)
+    {
+        cout << "You purchase " << NumOfBooks << " so you have earned 15 points" << endl;
+    }
+    else if (NumOfBooks == 3)
+    {
+        cout << "You purchase " << NumOfBooks << " so you have earned 30 points" << endl;
+    }
+    else if (NumOfBooks >= 4 )
+    {
+        cout << "You purchase " << NumOfBooks << " so you have earned 60 points" << endl;
+    }
+    else 
+    {
+        cout << "You purchase " << NumOfBooks << " so you have earned 0 points" << endl;
+    }
+    
+    return 0;
+
+}  
