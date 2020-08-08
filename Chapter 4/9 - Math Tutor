@@ -1,0 +1,52 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+using namespace std;
+
+int main()
+{
+    //4.9 - Math Tutor - Coded by Quanysha Jones
+    //This is a modification of Programming challage 15 from chapter 3. 
+    //write a program that can be used as a math tutor for a young student. 
+    //the program should display two random numbers that are to be added. the program 
+    //should wait for the student to enter answer. if the answer is correct, a message of 
+    //congratulations should be printed. if the answer is incorrect, a message should be 
+    //printed showing the correct answer. 
+    
+    int RandomNum2, RandomNum1, RandomAnswer, StudentAnswer;
+    unsigned seed = time(0); //get system time
+    
+    srand(seed); //makes sure i get a random number everytime the system restarts
+    
+    RandomNum1 = 1 + rand() % 100000; //set the max upper range to 100,000
+    RandomNum2 = 1 + rand() % 100000; //wont got past that value
+    
+    cout << "Hi, I'm your math tutor. This program should add any two random numbers together..";
+    cout << "\nLet's see if it works. I'm going to display two random numbers now... ";
+    cout << "\n" << RandomNum1;
+    cout << "\n + " << RandomNum2;
+    cout << "\n-----------";
+    
+    //get answer from student
+    cout << "\n\nWhat is the answer?..";
+    cin >> StudentAnswer;
+    
+    RandomAnswer = RandomNum1+ RandomNum2;
+    
+    if (RandomAnswer == StudentAnswer)
+    {
+        cout << "\a \a Congratulations, that is correct" << endl;
+    }
+    else
+    {
+        cout << "Sorry that is not correct. The correct answer is " << RandomAnswer << endl; 
+    }
+
+    
+    return 0;
+
+}  
+
