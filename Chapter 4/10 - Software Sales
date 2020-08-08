@@ -1,0 +1,71 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+using namespace std;
+
+int main()
+{
+    //4.10 - Software sales - Coded by Quanysha Jones
+    //a software company sells a package that retails for $99. quantity discounts 
+    //are given according to the following tabel:
+    //10-19 = 20%, 20 - 49 = 30%, 50 - 99 = 40%, 100 or more = 50%. write a program 
+    //that asks for the number of units sold and computers the total cost of the purchase. 
+    //make sure the number of units is greater than 0.
+    
+    int PackageCost = 99, UnitsSold, TotalCost, Discount, FinalCost; 
+    
+    cout << "This program will calculate the total cost of units bought with your discounts" << endl;
+    cout << "Enter the number of units sold: " << endl;
+    cin >> UnitsSold;
+    
+    if (UnitsSold >=10 && UnitsSold <= 19)
+    {
+        //discount it 20%
+        TotalCost = PackageCost*UnitsSold ;
+        Discount = TotalCost * 0.2;
+        FinalCost = TotalCost - Discount; 
+        cout << "Total cost of purchase is $" << FinalCost << " including your 20% discount" << endl; 
+    }
+    else if (UnitsSold >=20 && UnitsSold <= 49)
+    {
+        //discount it 30%
+        TotalCost = PackageCost*UnitsSold ;
+        Discount = TotalCost * 0.3;
+        FinalCost = TotalCost - Discount; 
+        cout << "Total cost of purchase is $" << FinalCost << " including your 30% discount" << endl; 
+    }
+    else if (UnitsSold >=50 && UnitsSold <= 99)
+    {
+        //discount it 40%
+        TotalCost = PackageCost*UnitsSold ;
+        Discount = TotalCost * 0.4;
+        FinalCost = TotalCost - Discount; 
+        cout << "Total cost of purchase is $" << FinalCost << " including your 40% discount" << endl; 
+    }
+    else if (UnitsSold >=100)
+    {
+        //discount it 50%
+        TotalCost = PackageCost*UnitsSold;
+        Discount = TotalCost * 0.5;
+        FinalCost = TotalCost - Discount; 
+        cout << "Total cost of purchase is $" << FinalCost << " including your 50% discount" << endl;
+    }
+    else if (UnitsSold >= 1 && UnitsSold <= 9)
+    {
+        //gets no discount but want to make sure no holes in code
+        TotalCost = PackageCost*UnitsSold ;
+        cout << "Total cost of purchase is $" << TotalCost << ". You don't qualify for a discount yet." << endl;
+    }
+    else
+    {
+        cout << "Number must be greater than zero. Restart program and try again." << endl; 
+    }
+    
+    return 0;
+
+}  
+
+        
