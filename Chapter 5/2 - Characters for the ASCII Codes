@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+
+using namespace std;
+
+int main()
+{
+    //5.2 Characters for the ASCII Codes - Coded by: Quanysha Jones
+    //write a program that uses a loop to display the characters for the ascii codes 0 
+    //through 127. Display 16 characters on each line.
+
+    
+    for (char ASCIIChar = 0; ASCIIChar < 127; ASCIIChar++) //display btw ascii characters 0-127
+    {
+        cout << ASCIIChar << " " ;
+        if (ASCIIChar % 16 == 0) //create a new line after 16 characters
+        {
+            cout << endl;
+        }
+    }
+
+    return 0;
+}
