@@ -1,0 +1,72 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+using namespace std;
+
+int main()
+{
+    //4.14 - Running the Race - Coded by Quanysha Jones
+    //Write a program that asks for the names of three runners and the time it took each of them 
+    //to finish a race. The program should display who came first, second and thrid place.
+    //be sure the names do not overflow the array. only accept positive numbers for the times
+    
+    string Runner1, Runner2, Runner3;
+    int RunnerTime1, RunnerTime2, RunnerTime3;
+    
+    cout << "This program will take 3 runners names and their time(in seconds) and put in order based on their time" << endl;
+    cout << "Enter the runners names and time: " << endl;
+    cin >> Runner1 >> RunnerTime1 >> Runner2 >> RunnerTime2 >> Runner3 >> RunnerTime3;
+    
+    if (RunnerTime1 > 0 && RunnerTime2 > 0 && RunnerTime3 > 0 ) //check for zeros
+    {
+        if (RunnerTime1 > RunnerTime2 && RunnerTime1 > RunnerTime3) //runner1 is 1st
+        {
+            if (RunnerTime2 > RunnerTime3) //runner2 is second
+            {
+                cout << "First place is " << Runner1 << ", second place is " << Runner2 << ", and thrid place is " << Runner3 << endl; 
+            }
+            else //runner3 is second
+            {
+                cout << "First place is " << Runner1 << ", second place is " << Runner3 << ", and thrid place is " << Runner2 << endl; 
+            }
+        }
+        else if (RunnerTime2 > RunnerTime1 && RunnerTime2 > RunnerTime3) //runner2 is 1st
+        {
+            if (RunnerTime1 > RunnerTime3) //runner1 is second
+            {
+                cout << "First place is " << Runner2 << ", second place is " << Runner1 << ", and thrid place is " << Runner3 << endl;
+            }
+            else // runner3 is second
+            {
+                cout << "First place is " << Runner2 << ", second place is " << Runner3 << ", and thrid place is " << Runner2 << endl;
+            }
+        }
+        else if (RunnerTime3 > RunnerTime1 && RunnerTime3 > RunnerTime2) //runner3 is 1st 
+        {
+            if (RunnerTime1 > RunnerTime2) //runner1 is second
+            {
+                cout << "First place is " << Runner3 << ", second place is " << Runner1 << ", and thrid place is " << Runner2 << endl;
+            }
+            else //runner 2 is second
+            {
+                cout << "First place is " << Runner3 << ", second place is " << Runner2 << ", and thrid place is " << Runner1 << endl;
+            }
+        }
+        else
+        {
+            
+        }
+    }
+    else
+    {
+        cout << "Invaild times. Please restart program and try again." << endl;
+    }
+    
+    
+    return 0;
+
+}  
+
