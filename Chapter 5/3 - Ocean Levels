@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+using namespace std;
+
+int main()
+{
+    //5.3 - Ocean Levels- Coded by Quanysha Jones
+    //assuming the ocean's level is current rising at about 1.5 milimeters per year, 
+    //write a program that displays a table shouwing the number of milimeters that the ocean 
+    //will have risen each year for the next 25 years.
+    
+    double OceanLevel= 1.5;
+    int years; 
+    
+    cout << "Years \t\tOcean Level" << endl;
+    cout << "************************" << endl; 
+    
+    for (years = 1; years <= 25; years++ )
+    {
+        cout << years << "\t\t" << OceanLevel << endl;
+        OceanLevel += OceanLevel; //add 1.5 millimeters to the level each year
+    }
+    
+    return 0;   
+}
