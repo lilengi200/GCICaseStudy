@@ -35,14 +35,14 @@ int main()
                 cout << "The area of your circle is " << AreaOfCircle << endl;
                 break;
                 
-        case 2: cout << "What is the radius of the retangle? " << endl;
-                cin >> radius;
+        case 2: cout << "What is the length and width of the retangle? " << endl;
+                cin >> length >> width;
                 AreaOfRectangle = length * width; // area of Rectangle
                 cout << "The area of your retangle is " << AreaOfRectangle << endl;
                 break;
                 
-        case 3: cout << "What is the radius of the triangle? " << endl;
-                cin >> radius;
+        case 3: cout << "What is the base and height of the triangle? " << endl;
+                cin >> base >> height;
                 AreaOfTriangle = base * height * 0.5; // area of Triangle
                 cout << "The area of your triangle is " << AreaOfTriangle << endl;
                 break;
