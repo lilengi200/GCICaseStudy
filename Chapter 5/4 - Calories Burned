@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+using namespace std;
+
+int main()
+{
+    //5.4 - Calories Burned- Coded by Quanysha Jones
+    //running on a particular treadmill you burn 3.9 Calories per min. write a program that 
+    //uses a loop to display the number of calories burned after 10, 15, 20, 25, and 30 mins.
+    
+    double CaloriesPerMin;
+    int Minutes;
+    
+    cout << "Minutes\tCalories Per Min" << endl;
+    cout << "***********************" << endl;
+    
+    for (Minutes = 10 ; Minutes <=30; Minutes++)
+    {
+        CaloriesPerMin = 3.9 * Minutes; 
+        cout << Minutes << "\t\t" << CaloriesPerMin << endl;
+        Minutes += 4 ; // add 5 mins to each round
+    }
+    
+    
+    
+    return 0;   
+}
