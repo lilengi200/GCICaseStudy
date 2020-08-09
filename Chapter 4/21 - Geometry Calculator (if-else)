@@ -1,0 +1,87 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+using namespace std;
+
+int main()
+{
+    //4.21 - Geometry Calculator (if/else) - Coded by Quanysha Jones
+    //write a program that displays this menu...if the user enters 1, the program should ask
+    //for the radius of the circle and then display its area. if user enters 2, 
+    //the program should ask for the length and width of the rectangle and then display 
+    //the retangle's area. if user enters 3 the program should ask for the length of the 
+    //traiangle's base and its height and then display its area. if user enters 4, the 
+    //program should end. 
+    int choice;
+    double AreaOfCircle, AreaOfRectangle, AreaOfTriangle , length, base, height, width, radius;
+    
+    cout << "Geometry Calculator" << endl;
+    cout << "\n";
+    cout << "1. Calculate the Area of a Cicle" << endl;
+    cout << "2. Calculate the Area of a Rectangle" << endl;
+    cout << "3. Calculate the Area of a Triangle" << endl;
+    cout << "4. Quit" << endl;
+    cout << "Enter your choice (1-4)" << endl;
+    cin >> choice;
+    
+    if (choice == 1)
+    {
+        cout << "What is the radius of the circle? " << endl;
+        cin >> radius;
+        
+        if (radius <= -1) // cant have negative numbers 
+        {
+            cout << "Can't accept negative values" << endl;
+        }
+        else
+        {
+            AreaOfCircle = 3.14259 * pow(radius, 2); //area of circle
+            cout << "The area of your circle is " << AreaOfCircle << endl;
+        }
+    }
+    else if (choice == 2)
+    {
+        cout << "What is the length and width of the retangle? " << endl;
+        cin >> length >> width;
+        
+        if (length <= -1 || width <= -1) // cant have negative numbers 
+        {
+            cout << "Can't accept negative values" << endl;
+        }
+        else
+        {
+            AreaOfRectangle = length * width; // area of Rectangle
+            cout << "The area of your retangle is " << AreaOfRectangle << endl;
+        }
+    }
+    else if (choice == 3)
+    {
+        cout << "What is the base and height of the triangle? " << endl;
+        cin >> base >> height;
+        
+        if (base <= -1 || height <= -1) // cant have negative numbers 
+        {
+            cout << "Can't accept negative values" << endl;
+        }
+        else
+        {
+            AreaOfTriangle = base * height * 0.5; // area of Triangle
+            cout << "The area of your triangle is " << AreaOfTriangle << endl;
+        }
+    }
+    else if (choice == 4)
+    {
+        cout << "Restart program if you want to use it again." << endl;
+    }
+    else 
+    {
+        cout << "You entered a invaild option" << endl;
+    }
+
+    
+    return 0;
+
+}  
