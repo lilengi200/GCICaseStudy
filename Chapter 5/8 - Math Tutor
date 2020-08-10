@@ -1,0 +1,95 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+using namespace std;
+
+int main()
+{
+    //5.8 - Math Tutor - Coded by Quanysha Jones
+    //this program started in chapter 3.15 and was modified in chapter 4.9. Modify the 
+    //program again so it displays a menu allowing the user to select an addition, 
+    //subtraction, multiplcation, or division problem. the final selection on the menu 
+    //should let the user quit the program. After the user has finished the math problem, 
+    //the program should display the menu again. this process is repeated until the user 
+    //chooses to quit the program. 
+    
+    int Number1, Number2, AddAnswer, Option, DiviAnswer, MultAnswer, SubAnswer;
+    
+    do
+    {
+        cout << "I'm your Math Tutor here to help you." << endl;
+        cout << "Select a number of the type of problem you're needing help solving" << endl;
+        cout << "1. Addition" << endl;
+        cout << "2. Subtraction" << endl;
+        cout << "3. Multiplcation" << endl;
+        cout << "4. Division" << endl;
+        cout << "5. Quit " << endl;
+        cin >> Option;
+        
+        
+        while (Option <= 0 || Option > 5) //keep options in range
+        {
+            cout << "You enter invaild options. Restart program and try again." << endl;
+            break;
+        }
+        
+        switch (Option)
+        {
+            case 1: cout << "Enter two numbers you want to add together: " << endl;
+                    cin >> Number1 >> Number2; 
+                    AddAnswer  = Number1 + Number2;
+                    cout << "Press ENTER to see the answer" << endl;
+                    cin.get();
+                    cout << " " << Number1 << endl;
+                    cout << " +" << Number2 << endl;
+                    cout << "---------" << endl;
+                    cout << AddAnswer; 
+                    break;
+                    
+            case 2: cout << "Enter two numbers you want to subtract from each other: " << endl;
+                    cin >> Number1 >> Number2; 
+                    SubAnswer  = Number1 + Number2;
+                    cout << "Press ENTER to see the answer" << endl;
+                    cin.get();
+                    cout << " " << Number1 << endl;
+                    cout << " +" << Number2 << endl;
+                    cout << "---------" << endl;
+                    cout << SubAnswer;
+                    break;
+                    
+            case 3: cout << "Enter two numbers you want to multiply together" << endl;
+                    cin >> Number1 >> Number2; 
+                    MultAnswer  = Number1 + Number2;
+                    cout << "Press ENTER to see the answer" << endl;
+                    cin.get();
+                    cout << " " << Number1 << endl;
+                    cout << " +" << Number2 << endl;
+                    cout << "---------" << endl;
+                    cout << MultAnswer;
+                    break;
+                    
+            case 4: cout << "Enter two numbers you want to preform division on: " << endl;
+                    cin >> Number1 >> Number2; 
+                    DiviAnswer  = Number1 + Number2;
+                    cout << "Press ENTER to see the answer" << endl;
+                    cin.get();
+                    cout << " " << Number1 << endl;
+                    cout << " +" << Number2 << endl;
+                    cout << "---------" << endl;
+                    cout << DiviAnswer;
+                    break;
+                    
+            case 5: cout << "Program has ended" << endl;
+                    break;
+        }
+    
+        
+    }
+    
+    
+    
+    return 0;   
+}
