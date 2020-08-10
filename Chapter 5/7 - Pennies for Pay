@@ -36,7 +36,7 @@ int main()
         Salary += pennies; 
         TotalSalary += Salary; //accummalator running the Total
     }
-    cout << "The Total Salary is $0." << TotalSalary;
+    cout << "The Total Salary is " << TotalSalary << " additional pennies << endl;
     
     
     return 0;   
