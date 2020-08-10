@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+using namespace std;
+
+int main()
+{
+    //5.6 - Distance Traveled - Coded by Quanysha Jones
+    //The distance a vehicle travels can be calculated as follows: distance = speed *time. 
+    //for example, if a train travels 40 miles per hour for 3 hours, the distance traveled is 120 miles
+    //write a program that ask the user for the speed of a vehicle (in miles per hour) and 
+    //how many hours it has traveled. the program should then use a loop to display the distance 
+    //the vehicle has traveld for each hour of that time period. 
+    
+    int Speed, Hours, Traveled; 
+    
+    cout << "What is the speed of a vehicle in mph and " << endl;
+    cout << "how many hours it has to traveled: " << endl;
+    cin >> Speed >> Traveled;
+    
+    while (Speed <= -1 || Traveled < 1)
+    {
+        cout << "Invaild information. Restart program. Try again." << endl;
+        break;
+    }
+    
+    cout << "Hour \t Distance Traveled" << endl;
+    cout << "-----------------------" << endl;
+    
+    for (Hours = 1; Hours <= Traveled; Hours++ )
+    {
+        cout << Hours << "\t" << Speed << endl;
+        Speed += Speed;
+        
+    }
+    
+    
+    return 0;   
+}
