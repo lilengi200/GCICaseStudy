@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-    //5.4 - Calories Burned- Coded by Quanysha Jones
+    //5.5 - Membership Fee Increased- Coded by Quanysha Jones
     //A country club, which currently charges $2,500 per year for membership, has annouced it 
     //will increase its membership fee by 4% each year for the next 6 years. write a program 
     //that uses a loop to diplay the projected rates for the next 6 years.
