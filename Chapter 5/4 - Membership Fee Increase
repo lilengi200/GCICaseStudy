@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+using namespace std;
+
+int main()
+{
+    //5.4 - Calories Burned- Coded by Quanysha Jones
+    //A country club, which currently charges $2,500 per year for membership, has annouced it 
+    //will increase its membership fee by 4% each year for the next 6 years. write a program 
+    //that uses a loop to diplay the projected rates for the next 6 years.
+    
+    double Membership, Rate =0.04, CurrentRates = 2500;
+    int years; //counter
+    
+    cout << "\tCountry Club Fees" << endl;
+    cout << "Year \t Current Rates" << endl;
+    cout << "***********************" << endl;
+    
+    
+    for (years = 1 ; years <=6; years++)
+    {
+        cout << years << "\t\t" << CurrentRates << endl;
+        CurrentRates += CurrentRates * Rate; // 4% calculations 
+    }
+    
+    return 0;   
+}
