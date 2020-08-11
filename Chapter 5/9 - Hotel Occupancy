@@ -1,0 +1,59 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+using namespace std;
+
+int main()
+{
+    //5.9 - Hotel Occupancy - Coded by Quanysha Jones
+    //Write a program that calculates the occupany rate for a hotel. The program should 
+    //start by asking the user how many floors the hotel has. A loop should then iterate 
+    //once for each floor. in each iteration, the loop should ask the user for the number of 
+    //rooms on the floor and how many of them are occupied. after all the iterations, the
+    //programs should display how many rooms the hotel has, how many are occupied, how many 
+    //are unoccupied, and the percetage of rooms that are occupied. the percetage may be 
+    //calculated by dividing the number of rooms occupied by the number of rooms. note its 
+    //traditional that most hotels do not have a 13th floor. the loop in this program should
+    //skip the entire 13th floor iteration. do no accept a value less than 1 for the number 
+    //of floors, number less than 10 for number of rooms.
+    
+    int Rooms, TotalFloors, Floors, RoomsOccupied ; 
+    //need a accummator to keep talley during loop
+    double PercentageOccupied, TotalRooms = 0.0, TotalOccupied = 0.0, Unoccupied;
+    
+    do
+    {
+        cout << "The program will calculate the occupancy rate for a hotel." << endl;
+        cout << "How many floors does the hotel have? " << endl;
+        cin >> TotalFloors;
+    
+        for (Floors = 1; Floors <= TotalFloors; Floors++)
+        {
+            if (Floors == 13) 
+            {
+                continue; // skip past 13th floor
+            }
+            
+            cout << "How many rooms are on floor " << Floors << endl;
+            cin >> Rooms;
+            cout << "How many are occupied? " << endl; 
+            cin >> RoomsOccupied;
+            TotalRooms +=Rooms; //keep track of total rooms
+            TotalOccupied += RoomsOccupied; //keep track of occupancy
+        }
+    }while (Rooms >= 10);
+    
+    Unoccupied = TotalRooms - TotalOccupied; // total rooms available
+    PercentageOccupied = (TotalOccupied/TotalRooms ) *100 ; //get percetage occupied
+    
+    //total rooms in hotel, how many occupied , Unoccupied, and percetage.
+    cout << "There are a total of " << TotalRooms << " rooms in this hotel with" << endl;
+    cout << TotalOccupied << " rooms occupied. Which means there are " << Unoccupied << " available for customers" << endl;
+    cout << setprecision(2) << fixed;
+    cout << "That is " << PercentageOccupied << "% occupancy rate." << endl;
+    
+    return 0;  
+}
