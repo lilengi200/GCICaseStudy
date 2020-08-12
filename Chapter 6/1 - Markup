@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+
+using namespace std;
+
+double CalculateRetail(double, double); //function prototypes
+
+int main()
+{
+    //6.1 - Markup - Coded by: Quanysha Jones
+    //write a program that ask the user to enter an item's wholesale cost and its markup 
+    //percentage. ot should then diplay the item's retail price. the program should have
+    //a function name calculateRetail that receives the wholesale cost and the markup 
+    //percentage as arguemensts, and returns the retail price of the item . do no accept 
+    //negative values for either the wholesale cost of the item or the markup percentage.
+    
+    double Retail, WC, PP, Total1, FinalPrice;
+    
+    cout << "this program will calculate your wholesale items with the profit percentage and" << endl;
+    cout << "change it to retail pricing. " << endl;
+    FinalPrice = CalculateRetail(WC,PP);
+    
+    cout << setprecision(2) << fixed; 
+    cout << "Retail price is $" << FinalPrice << endl;
+
+    return 0;
+}
+
+double CalculateRetail(double WholesaleItem, double ProfitPerc)
+{
+    double TotalPrice;
+    
+    cout << "\nEnter the item's wholesale cost and its markup percentage (ex: 10 0.20) : " << endl;
+    cin >> WholesaleItem >> ProfitPerc; 
+    
+    while (WholesaleItem <= -1 || ProfitPerc <= -1 )
+    {
+        cout << "You entered a negative value. Please re-enter correct your values: " << endl;
+        cin >> WholesaleItem >> ProfitPerc;
+    }
+    
+    TotalPrice = (WholesaleItem*ProfitPerc) + WholesaleItem;
+   
+}
+
