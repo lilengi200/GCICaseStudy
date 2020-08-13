@@ -1,0 +1,54 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+
+using namespace std;
+
+ //global constants
+double Celsius, FtoC, Fahrenheit; //global constants
+double celsius(double); 
+
+
+int main()
+{
+    //6.7 - Celsius Temperature Table - Coded by Quanysha Jones
+    // the formula for converting a Tedisplays a table of the fahrenheit Temperaturs 0 
+    //through 20 and their celsius equivalents. mperaturefrom Fahrenheit to Celsius is 
+    //C = 5/9 (f-32) where f is fahrenheit Temperature and c is the celsius Temperature. 
+    //write a function named cesius that accepts a fahrenheit Temperature as an argument. 
+    //the function should return the Temperature, converting to celsius. demonstrate the 
+    //function by calling it in a loop that displays a table of the fahrenheit Temperature 0 
+    //through 20 and their celsius equivalents.
+    
+    cout <<"This program will calculate celsius based on values set.." << endl;
+    cout << "Using the formaula C = 5/9 (f-32)" << endl;
+    cout  << endl;
+
+    cout << "\t*Celsius Converson Table*" << endl;
+    cout << "\t*************************" << endl;
+    cout << "\tFahrenheit\tCelsius" << endl;
+    cout << "\t-----------------------" << endl;
+  
+    for (Fahrenheit =1 ; Fahrenheit <= 20; Fahrenheit++)
+    {
+        FtoC = celsius(Fahrenheit); //calling the converter function
+        cout << setprecision(1) << fixed;
+        cout << "\t" << Fahrenheit << "\t\t" << FtoC << endl;
+    }
+
+    
+    return 0;
+}
+
+double celsius(double Fahrenheit) //this function accepts Temperature in Fahrenheit
+{
+    
+    Celsius = (0.555) * (Fahrenheit-32); //formula given for F to C
+    
+    return Celsius; //returns Celsius
+}
+ 
+ 
