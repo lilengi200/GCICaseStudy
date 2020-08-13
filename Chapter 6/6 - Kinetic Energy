@@ -42,9 +42,6 @@ int main()
 double kineticEnergy(double Mass, double Velocity) //this function accepts mass and velocity
 {
     
-    //cout << "Enter the mass ( in kiolgrams) and velocity ( in meters per second): " << endl;
-    //cin >> Mass >> Velocity;
-    
     KE = 0.5*Mass*(pow(Velocity,2)); //formula given for falling
     
     return KE; //returns distance
