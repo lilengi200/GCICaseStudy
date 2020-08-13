@@ -1,0 +1,53 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+
+using namespace std;
+
+double KE, Mass, Velocity; //global constants
+double kineticEnergy(double, double); 
+
+
+int main()
+{
+    //6.6 - Kinetic Energy - Coded by Quanysha Jones
+    //in physics, an object that is in motion is said to have kinetic energy. the following 
+    //formula can be used to determin a moving object's kinetic energy: KE = 0.5mv^2. 
+    //the variables in the formula are as follows: KE is kinetic energy, m is the object's 
+    //mass in kilograms, and v is the object's velocity, in meters per second. write a 
+    //function named kineticEnergy that accepts an object's mass (in kilograms) and velocity 
+    //(in meters per second) as argurment. the function should return the ammount of kinetic 
+    //energy that the object has. demonstrate the function by calling it in a program that 
+    //asks the user to enter values for mass and velocity.    
+    
+    double kEnergy;
+    
+    cout <<"This program will calculate Kinetic Energy based on the information you input.." << endl;
+    cout << "Using the formaula KE = 0.5mv^2" << endl;
+    cout  << endl;
+
+    cout << "Enter the mass ( in kiolgrams) and velocity ( in meters per second): " << endl;
+    cin >> Mass >> Velocity;
+    
+    kEnergy = kineticEnergy(Mass,Velocity);
+    
+    cout << "Kinetic Energy = " << kEnergy << endl;
+    
+    return 0;
+}
+
+double kineticEnergy(double Mass, double Velocity) //this function accepts falling object's time
+{
+    
+    //cout << "Enter the mass ( in kiolgrams) and velocity ( in meters per second): " << endl;
+    //cin >> Mass >> Velocity;
+    
+    KE = 0.5*Mass*(pow(Velocity,2)); //formula given for falling
+    
+    return KE; //returns distance
+}
+ 
+ 
