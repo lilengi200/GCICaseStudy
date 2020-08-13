@@ -1,0 +1,52 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+
+using namespace std;
+
+double Distance, G = 9.8, FallingTime, FinalDistance; //global constants
+double fallingDistance(double); 
+
+
+int main()
+{
+    //6.5 - Falling distance - Coded by Quanysha Jones
+    //when an object is falling because of gravity, the following forumla can be used to 
+    //determine the distance the object falls in specific time period: d = .5gt^2. 
+    //the variables in the formula are as follows: d us the distance in meters, g is 9.8, 
+    //and t is the amount of time, in secounds, that the object has been falling. write a 
+    //function name fallingdistance that accepts an object's falling time (in seconds) as 
+    //an argument. the function should return the distance, in meters, that the object has 
+    //fallen during the time interval. write a program that demonstrates the function by 
+    //calling it in a loop passes the values 1 through 10 as arguments, and displays the 
+    //return value.    
+    
+    //double T;
+    
+    cout <<"This program will the falling distance because of gravity.." << endl;
+    cout << "Using the formaula D = 0.5Gt^2" << endl;
+    cout  << endl;
+
+    
+    for (FallingTime = 1; FallingTime <=10; FallingTime++ )
+    {
+        FinalDistance = fallingDistance(FallingTime); // calling the function in the loop for it to then display distance for time 1-10
+        
+        cout << FinalDistance << endl; // displays the distance between 1- 10
+    }
+    
+    return 0;
+}
+
+double fallingDistance(double FallingTime) //this function accepts falling object's time
+{
+    
+    Distance = 0.5*G*(pow(FallingTime,2)); //formula given for falling
+    
+    return Distance; //returns distance
+}
+ 
+ 
