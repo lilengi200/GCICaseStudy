@@ -35,7 +35,7 @@ int main()
     {
         FinalDistance = fallingDistance(FallingTime); // calling the function in the loop for it to then display distance for time 1-10
         
-        cout << FinalDistance << "seconds" << endl; // displays the distance between 1- 10
+        cout << "The falling distance = " << FinalDistance << " meters" << endl; // displays the distance between 1- 10
     }
     
     return 0;
