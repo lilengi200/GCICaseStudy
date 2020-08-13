@@ -1,0 +1,71 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+
+using namespace std;
+
+string North, South, East, West, Central; //global constants
+int Accident;
+int getNumAccidents(string);
+void findLowest(int, int, int, int, int );
+
+int main()
+{
+    6.4 - Safest Driving Area - Coded by Quanysha Jones
+    
+    int North, South, East, West, Central;
+    
+    cout <<"This program will determine which of the 5 geographic regions within a major city" << endl;
+    cout << "had the fewest reported auto Accidents." << endl;
+    
+    North = getNumAccidents("North"); //assigning the function value
+    South = getNumAccidents("South");
+    East = getNumAccidents("East");
+    West = getNumAccidents("West");
+    Central = getNumAccidents("Central");
+    
+    findLowest(North, South, East, West, Central); //calling the function to determine who was the lowest
+
+    return 0;
+}
+
+int getNumAccidents(string SideOfTown)
+{
+    cout << "What was the number of accients on " << SideOfTown << " side of town? " << endl;
+    cin >> Accident;
+    
+    while (Accident <= 0)
+    {
+        cout << "You can't have zero accidents. Please enter a value greater than zero for " << SideOfTown << " side of town" << endl;
+        cin >> Accident; 
+    }
+    
+    return Accident;
+}
+ 
+void findLowest(int North, int South, int East, int West, int Central)
+{
+    if (North < South && North < West && North < East && North < Central) // north was last place
+    {
+        cout << "The North side of town had the least amount of accounts with a total of " << North << endl;
+    }
+    else if (North > South && South < West && South < East && South < Central) // south was last place
+    {
+        cout << "The South side of town had the least amount of accounts with a total of " << South << endl;
+    }
+    else if (East < South && East < West && North > East && East < Central) // east was last place
+    {
+        cout << "The East side of town had the least amount of accounts with a total of " << East << endl;
+    }
+    else if (West < South && North > West && West < East && West < Central) // west was last place
+    {
+        cout << "The North side of town had the least amount of accounts with a total of " << West << endl;
+    }
+    else
+    {
+        cout << "The central side of town had the least amount of accounts with a total of " << Central << endl;
+    }
+}
