@@ -1,0 +1,65 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+
+using namespace std;
+
+double Length,Width,Area, Arearetangle; //global constants 
+
+double getLength(double); //function prototypes, ask user to enter the retangle's length
+double getWidth(double); // ask the user to enter the retangle's width 
+double getArea(double, double); //returns area
+double displayData(double, double, double); //accepts the rectangle's length, width, and area as arguemnts
+
+int main()
+{
+    //6.1 - Rectangle Area - Coded by: Quanysha Jones
+    //The student CD contains a partially written program named Arearetangle.cpp. 
+    //your job is to compare the program. when it is complete, the problem will ask the user 
+    //enter the width and length of a rectangle, and then display the rectangle's area. 
+    //The program calls the following functions, which have not been written: getLength, 
+    //getwidth, getarea, displayData.
+    
+    //double L,W,;
+    
+    cout << "This program will display your rectangle's area.." << endl;
+    Length = getLength(Length); //get Length
+    Width = getWidth(Width); //getWidth
+    Area = getArea(Length,Width); //get area
+    displayData(Length, Width, Arearetangle); //call functions and display information
+
+    return 0;
+}
+
+double getLength(double Length)
+{
+    
+    cout << "\nEnter the Length of your retangle : " << endl;
+    cin >> Length; 
+    return Length; //return 
+   
+}
+
+double getWidth(double Width) 
+{
+    cout << "\nEnter the Width of your retangle : " << endl;
+    cin >> Width;
+    return Width;
+}
+
+double getArea(double Length, double Width)
+{
+    
+    return Length * Width; 
+}
+
+double displayData (double Length, double Width, double Arearetangle)
+{
+    Arearetangle = Length * Width;
+    cout << setprecision(2) << fixed; 
+    cout << "The area of the retangle is: " << Arearetangle << endl;
+}
+
