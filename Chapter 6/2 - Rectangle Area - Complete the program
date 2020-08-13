@@ -16,7 +16,7 @@ double displayData(double, double, double); //accepts the rectangle's length, wi
 
 int main()
 {
-    //6.1 - Rectangle Area - Coded by: Quanysha Jones
+    //6.2 - Rectangle Area - Coded by: Quanysha Jones
     //The student CD contains a partially written program named Arearetangle.cpp. 
     //your job is to compare the program. when it is complete, the problem will ask the user 
     //enter the width and length of a rectangle, and then display the rectangle's area. 
