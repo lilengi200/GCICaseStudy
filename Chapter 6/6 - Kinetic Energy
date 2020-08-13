@@ -39,7 +39,7 @@ int main()
     return 0;
 }
 
-double kineticEnergy(double Mass, double Velocity) //this function accepts falling object's time
+double kineticEnergy(double Mass, double Velocity) //this function accepts mass and velocity
 {
     
     //cout << "Enter the mass ( in kiolgrams) and velocity ( in meters per second): " << endl;
