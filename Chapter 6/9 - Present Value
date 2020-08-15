@@ -1,0 +1,56 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand 
+
+using namespace std;
+
+double pV, futureValue, interestRate;//global constants
+int NumYears; //global constants
+double presentValue(double, double, double);
+
+int main()
+{
+    //6.9 - Present Value - Coded by Quanysha Jones
+    //Suppose you want to deposit a certain amount of money into a savings account, and then 
+    //leave it alone to draw interest for the next 10 years. At the end of 10 years you would 
+    //like to have $10,000 in the account. how much do you need to deposit today to make that 
+    //happen? you can use the following formula, which is known as the present value formula , 
+    //to find out: P = F/(1+r)^n . the terms in the formula are as follows: P is the present 
+    //value or the amount that you need to deposit. F is the future value the you want in the 
+    //account. (in this case, F is $10,000.) R is the annual interest rate. n is the number of 
+    //years that you plan to let the money sit in the account. write a program that has a 
+    //function name presentvalue that performs this calculation. the function should accept the 
+    //future value, which is the amount that you need to deposit today. demonstrate the function 
+    //in a program that lets the user experiment with different values for the formula's term. 
+    
+    double FpV, FV, IR,NY;
+    
+    cout << "This program will determine what you need to put in your account " << endl;
+    cout << "and how much it will be after a certain time frame" << endl;
+    
+    FpV = presentValue(FV, IR, NY); 
+    cout << setprecision(2) << fixed;
+    cout << "Based on what you entered, you will need to deposit $" << FpV << " to get where you desire" << endl;
+    
+    return 0;
+}
+
+double presentValue(double futureValue, double interestRate, double NumYears) //performs this calculation.
+{
+    cout << "Enter the amount you wish to have in your account: " << endl;
+    cin >> futureValue;
+    cout << "Enter your Interest Rate: " << endl;
+    cin >> interestRate;
+    cout << "Enter the amount of years you want to have the amount by: " << endl;
+    cin >> NumYears;
+    
+    pV = futureValue / pow((1+interestRate), NumYears);
+    
+    return pV;
+}
+ 
+ 
