@@ -1,0 +1,85 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand 
+
+using namespace std;
+
+int TestScore, TestScore1, TestScore2, TestScore3, TestScore4, TestScore5, Average1, Average2, Average3, Average4, Average5;
+void getscore(int &);
+int findLowest(int, int, int, int, int);
+void calcAverage(int, int, int, int, int);
+
+int main()
+{
+    //6.10 - Lowest Score Drop - Coded by Quanysha Jones
+    //Write a program that calculates the average of test scores, where the lowest score in 
+    //the group is dropped. it should use the following functions. Void getscore(), 
+    //void calcAverage(), int findLowest(). do no accept test scores lower than 0 or 
+    //higher than 100.
+    
+    cout << "I need 5 test scores to calculate the average. I will not include the lowest score" << endl;
+    
+    getscore(TestScore1); //call function
+    getscore(TestScore2);
+    getscore(TestScore3);
+    getscore(TestScore4);
+    getscore(TestScore5);
+    
+    calcAverage(TestScore1, TestScore2, TestScore3, TestScore4, TestScore5);
+    
+    return 0;
+}
+
+void getscore(int &TestScore) //ref variable 
+{
+    
+    cout << "What is the test score between 0 and 100 (press enter after each score):" << endl;
+    cin >> TestScore;
+    
+    while (TestScore < 0 || TestScore > 100) //keep the limits btw 0 and 100
+    {
+        cout << "Please enter a Test Score between 0 and 100 (press enter after each score): " << endl;
+        cin >> TestScore;
+    }
+}
+
+void calcAverage (int FinalScore1, int FinalScore2, int FinalScore3, int FinalScore4, int FinalScore5)
+{
+    cout << "Average of the 4 highest scores is: ";
+    //divide by 4.0 to avoid integer division
+    cout << ((FinalScore1 + FinalScore2 + FinalScore3 + FinalScore4 + FinalScore5) - findLowest(FinalScore1, FinalScore2, FinalScore3, FinalScore4, FinalScore5))/4.0 << endl; 
+}
+
+int findLowest(int TestScore1, int TestScore2, int TestScore3, int TestScore4, int TestScore5)
+{
+    if (TestScore1 < TestScore2 && TestScore1 < TestScore3 && TestScore1 < TestScore4 && TestScore1 < TestScore5)
+    {
+       
+       return TestScore1; //TestScore1 is the smallest
+    }
+    else if (TestScore1 > TestScore2 && TestScore2 < TestScore3 && TestScore2 < TestScore4 && TestScore2 < TestScore5)
+    {
+        
+        return TestScore2; //TestScore2 is the smallest
+    }
+    else if (TestScore1 > TestScore3 && TestScore3 < TestScore2 && TestScore3 < TestScore4 && TestScore3 < TestScore5)
+    {
+        
+        return TestScore3; //TestScore3 is the lowest
+    }
+    else if (TestScore1 > TestScore3 && TestScore3 < TestScore2 && TestScore3 < TestScore4 && TestScore3 < TestScore5)
+    {
+        
+        return TestScore4; //TestScore4 is lowest
+    }
+    else 
+    {
+        
+        return TestScore5; // TestScore5 is lowest
+    }
+    
+}
