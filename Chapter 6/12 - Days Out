@@ -1,0 +1,84 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand 
+
+using namespace std;
+int employees, Total, averageDM, Num;
+double average;
+int NumOfEmployees();
+int AbsentEmployees(int);
+double averageDaysMissed(int, int);
+
+int main()
+{
+    //6.12 - Days Out - Coded by Quanysha Jones
+    //Write a program that calculates the average number of days a company's employees are absent. 
+    //the program should have the following functions: a function called by main that asks the 
+    //user the number of employees in the company. this value should be returned as an int. 
+    //the function accepts no arguements. a function called by main that accepts one arguement: 
+    //the number of employees in the company. the function should ask the user to enter the 
+    //number of days each employee missed during the past year. the total of these days should 
+    //be returned as an int. a function called by main that takes two arguments: the number of 
+    //employees in the company and the total number of days absent for all employees during the 
+    //year. the function should return, as a double, the average number of days absent. 
+    //the function does not perform screen output and does not ask the user for input. 
+    //do not accept a number less than 1 for the number of employees and no negative number 
+    //for the days any employee missed. 
+    
+    
+    cout << "This program calculates the average number of days a company's employees are absent. " << endl;
+    
+    NumOfEmployees(); 
+    AbsentEmployees(Total);
+    cout << setprecision(2) << fixed;
+    cout << "The average days missed in the past year was " << 
+    averageDaysMissed(averageDM, Num) << endl;
+    
+    return 0;
+}
+
+int NumOfEmployees()
+{
+    cout << "What is the number of employees in the company? " << endl;
+    cin >> employees;
+    
+    while (employees < 1) //avoid less than 1 for number of employees 
+    {
+        cout << "Please enter a number of employees greater than 0: " << endl;
+        cin >> employees;
+    }
+    return employees;
+}
+
+int AbsentEmployees(int absentEmployees)
+{
+    int dayMissed; 
+    
+    
+    for (absentEmployees = 1; absentEmployees <= employees ; absentEmployees++)
+    {
+        cout << "Enter the number of days each employee missed during the past year: " << endl;
+        cin >> dayMissed;
+        
+        while (dayMissed < 0)
+        {
+            cout << "no such thing as a negative missed day. enter a positive interger: " <<endl;
+            cin >> dayMissed;
+        }
+        
+        Total += dayMissed; // accumulates the total num of days
+        
+    }
+    //cout << "total = " << Total; check to see if its adding up
+    return Total;
+}
+
+double averageDaysMissed (int TotabsentE, int NumE)
+{
+    average = (double) Total / employees; 
+    return average;
+}
