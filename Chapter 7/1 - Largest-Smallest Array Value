@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand 
+
+using namespace std;
+
+int main()
+{
+    //7.1 - Largest/Smallest Array Values - Coded by Quanysha Jones
+    // write a program that lets the user enter 10 values into an array. 
+    //the program should then display the Largest and smallest values stored in the array.
+    
+    int values = 10, Smallest, Largest;
+    double Num[values];
+    
+    cout << "this program will have you enter in 10 values and organize from largest to smallest" << endl;
+    
+    //go through each array and store them in the element
+    for (int count = 0 ; count < values; count ++ )
+    {
+        cout << "Enter the value for #" << (count +1 ) << endl;
+        cin >> Num[count]; 
+    }
+    
+    //initialize lowest and highest with first element
+    Smallest = Num[0];
+    Largest = Num[0]; 
+  
+    for (int count = 0; count < values; count ++ )
+    {
+        if (Num[count] < Smallest) // finds the Smallest
+        {
+            Smallest = Num[count];
+        }
+        if (Num[count] > Largest) //finds the largest 
+        {
+            Largest = Num[count];
+        }
+    }
+   
+    cout << "The Largest number is " << Largest << " and the Smallest is " << Smallest ;
+    
+    return 0;
+}
+
