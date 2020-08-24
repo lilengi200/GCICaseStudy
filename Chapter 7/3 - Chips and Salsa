@@ -1,0 +1,88 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand 
+
+using namespace std;
+
+int main()
+{
+    //7.3 - Chips and Salsa - Coded by Quanysha Jones
+    //write a program that lets a makeer of chips and salsa keep track of sales for five 
+    //different types of salsa: mild, medium, sweet, hot, and zesty. The program should use 
+    //two parallel 5 - element arrays: an array of strings that hold the five salsa names 
+    //and an array of integers that holds the number of jars sold during the past month for each salsa type. 
+    //the salsa names should be stored usong an initialization list at the time the name 
+    //array is created. The program should prompt the user to enter the number of jars 
+    //sold for each type. Once this sales data has been entered, the program should produce 
+    //a report that displays sales for each salsa type, titak sakes, and the names of the 
+    //highest selling and lowest selling products. Do not accecpt negative values for 
+    //numers of jars sold. 
+    
+    int Lowest, Highest, HighestSalsa, LowestSalsa;
+    int total= 0; // accumulator initalized
+  
+    const int TypeOfSalsa = 5; //num of salsas
+    const int String_Size = 7; //max size of each string
+    int Jars[TypeOfSalsa]; 
+    const char Salsas[TypeOfSalsa][String_Size] = 
+                    {"Mild","Medium", "Sweet", "Hot", "Zesty"};
+    
+    // user input for jars sold; 
+    for (int count = 0 ; count < TypeOfSalsa; count++)
+    {
+       cout << "What is the number of jars sold for " << Salsas[count] << "?" <<  endl;
+       cin >> Jars[count]; 
+       
+       while (Jars[count] < 0) //no negative numbers
+       {
+           cout << "Please enter a positive number of jars: " << endl;
+           cin >> Jars[count];
+       }
+       
+       total += Jars[count]; 
+    }
+    cout << endl;
+    
+    //display the total number of jars sold for each salsas
+    cout << "The total # of jars sold for " << Salsas[0] << " is " << Jars[0] << endl;
+    cout << "The total # of jars sold for " << Salsas[1] << " is " << Jars[1] << endl;
+    cout << "The total # of jars sold for " << Salsas[2] << " is " << Jars[2] << endl;
+    cout << "The total # of jars sold for " << Salsas[3] << " is " << Jars[3] << endl;
+    cout << "The total # of jars sold for " << Salsas[4] << " is " << Jars[4] << endl;
+    cout << endl;
+    
+    //Total sales
+    cout << "Total Sales for all Salsas is " << total << endl;
+    
+    //find the Highest and Lowest
+    Lowest = Jars[0];
+    Highest = Jars[0];
+    
+    for (int count = 0 ; count < TypeOfSalsa; count++)
+    {
+        if (Jars[count] < Lowest)
+        {
+            Lowest = Jars[count];
+            LowestSalsa = count;
+        }
+        if (Jars[count] > Highest)
+        {
+            Highest = Jars[count];
+            HighestSalsa = count; 
+        }
+    }
+    
+    //displays name of salsa and the number of jars sold of the flavor 
+    
+    cout << Salsas[HighestSalsa] << " had the highest # of Jars sold at " << Highest << endl;
+    cout << " and " << Salsas[LowestSalsa] << " had the Least amount at " << Lowest;
+
+    
+    return 0;
+}
+
+
