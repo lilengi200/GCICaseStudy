@@ -1,0 +1,72 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand 
+
+using namespace std;
+
+int main()
+{
+    //7.1 - Largest/Smallest Array Values - Coded by Quanysha Jones
+    // write a program that lets the user enter the total rainfall for each 12 months 
+    //into a array of doubles. the program should calculate and display the total rainfall 
+    //for the year, the average monthly rainfall and the months with the highest and lowest 
+    //amount.
+    
+    double AverageRainfall, Lowest, Highest;
+    double total= 0; // accumulator initalized
+  
+    const int Num_Months = 12; //num of months
+    const int String_Size = 10; //max size of each string
+    double TotalRainfall[Num_Months];
+    const char Months[Num_Months][String_Size] = 
+                    {"January","Febuary", "March", "April", "May", "June", "July", 
+                    "August", "September","October","November","December"};
+    
+    // user input for rainfall; 
+    for (int count = 0 ; count < Num_Months; count++)
+    {
+       cout << "What is the total rainfall for the month of " << Months[count] << "?" <<  endl;
+       cin >> TotalRainfall[count]; 
+       
+       while (TotalRainfall[count] < 0) //no negative numbers
+       {
+           cout << "Please enter a positive number " << endl;
+           cin >> TotalRainfall[count];
+       }
+       
+       total += TotalRainfall[count]; 
+    }
+    
+    //display the total rainfall for the year
+    cout << "The total rainfall for the year is " << total << endl;
+    
+    // find the average 
+    AverageRainfall = total/Num_Months;
+    cout << "The average rainfall was " << AverageRainfall << endl;
+    
+    //find the Highest and Lowest
+    Lowest = TotalRainfall[0];
+    Highest = TotalRainfall[0];
+    
+    for (int count = 0 ; count < Num_Months; count++)
+    {
+        if (TotalRainfall[count] < Lowest)
+        {
+            Lowest = TotalRainfall[count];
+        }
+        if (TotalRainfall[count] > Highest)
+        {
+            Highest = TotalRainfall[count];
+        }
+    }
+    
+    cout << "The highest rainfall was " << Highest << " and the lowest was " << Lowest;
+    
+    return 0;
+}
+
+
