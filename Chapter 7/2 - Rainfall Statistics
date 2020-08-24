@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-    //7.1 - Largest/Smallest Array Values - Coded by Quanysha Jones
+    //7.2 - Rainfall Statistic -  Coded by Quanysha Jones
     // write a program that lets the user enter the total rainfall for each 12 months 
     //into a array of doubles. the program should calculate and display the total rainfall 
     //for the year, the average monthly rainfall and the months with the highest and lowest 
