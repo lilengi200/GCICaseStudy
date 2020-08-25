@@ -1,0 +1,119 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+int count = 0;
+int Results;
+//const int ANSWERS = 20;
+void Wrong_Answer(char Student_Answers[], const char Correct_Answers[], const int ANSWERS);
+int Answers_Matched(char Student_Answers[], const char Correct_Answers[] , const int ANSWERS);
+
+int main()
+{
+    //7.11 - Driver's License Exam - Coded by: Quanysha Jones
+    //The local driver's license office has asked you to write a program that grades the 
+    //written portion of the driver's license exam. the exam has 20 multiple choice questions. 
+    //here are the correct answers: 1.B, 2.D, 3.A, 4.A, 5.C, 6. A, 7.B, 8.A, 9.C, 10. D, 11. B, 
+    //12. C, 13. D, 14. A, 15.D, 16. C, 17. C, 18. B, 19. D, 20.A. your program should store the
+    //correct answers above in an array. it should ask the user to enter the student's answers 
+    //for each of the 20 questions, and the answers should be stored in another array. after the 
+    //student's answers have been entered, the program should display a message indication 
+    //whether the student passes or failed the exam. (A student must correctly answer 15 of the 
+    //20 questions to pass the exam.) it should then display the total number of correctly 
+    //answered questions, the total number of incorrectly answered questions and a list 
+    //showing the question numbers of the incorrectly anaswered questions.
+    const int ANSWERS = 20;
+    const char Correct_Answers[ANSWERS] = 
+                    { 'B','D','A','A','C','A','B','A','C','D','B','C',
+                        'D','A','D','C','C','B','D','A' };
+    char Student_Answers[ANSWERS]; //holds students answers 
+   
+    cout<<"This program should help a local DMV office with their Driver's License Exam" <<endl;
+    cout<<"It gets the answers of the  student, and shows whether (s)he passed or not." << endl;
+    cout << endl;
+    cout<<"Answers are only A, B, C, or D, in uppercase" << endl;
+    
+    //capture student answers
+    for (count = 0; count < ANSWERS; count++)
+    {
+        cout << "Enter student's answer for question #" << (count +1) << endl;
+        cin >> Student_Answers[count];
+        
+        //uppercase only 
+        while ( Student_Answers[count] < 'A' || Student_Answers[count] > 'D')
+        { 
+            cout << "Enter a uppercase letter (A,B,C,D): " << endl;;
+            cin >> Student_Answers[count];
+        }
+        
+    }
+    // Get the results.
+    Results = Answers_Matched(Student_Answers,Correct_Answers, ANSWERS);
+    
+    //print results
+    if (Results >= 15)
+    {
+        cout << "Congratulations, You have passed the exam." << endl;
+    }
+    else
+    {
+        cout << "Sorry, you have failed in the exam." << endl;
+    }
+    cout << "Total correct answers: " << Results << endl;
+    cout << "Total wrong answers: " << (ANSWERS-Results) << endl;
+        
+    if (Results < 20)
+    {
+        cout << "The questions that were answered incorrectly" << endl;
+        Wrong_Answer(Student_Answers, Correct_Answers, ANSWERS);
+    }
+    else
+    {
+        cout<<"No questions were answered incorrectly.\n";
+    }    
+
+
+    return 0;
+}
+
+//this function loops over the elements and checks to see which matches based on the correct 
+//answers
+int Answers_Matched(char Student_Answers[],const char Correct_Answers[], const int ANSWERS)
+{
+    // Initialize it with zero.
+    int correct = 0;
+    
+    // Loop over the elements to check them.
+    for (count = 0; count < ANSWERS; count++)
+    {
+        // If we got a match, increment the value.
+        if (Student_Answers[count] == Correct_Answers[count])
+        {
+                correct++;
+        }
+    }
+        // return the number of correct answers.
+        return correct;
+}
+   
+//The function searchs over the array and compares each item with its corresponding 
+//one on, and it shows the questions that were not answered correctly. 
+void Wrong_Answer(char Student_Answers[], const char Correct_Answers[], const int ANSWERS)
+{
+    // Loop over the elements to check them.
+    for(count = 0; count < ANSWERS; count++)
+    {
+        // If we got a wrong answer, print the  question number.
+        if (Student_Answers[count] != Correct_Answers[count])
+        {
+            cout<<"Question #"<< (count + 1) <<" was not answered correctly." << endl;
+        
+        }
+    }
+}
+    
