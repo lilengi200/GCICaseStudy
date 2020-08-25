@@ -30,6 +30,7 @@ int main()
     int hours[SIZE];
     double payRate[SIZE], wages[SIZE];
     
+    //get employee's information
     for (int count = 0; count < SIZE; count++)
     {
         cout << "Enter info for Employee #" << empID[count] << ": " << endl;
@@ -58,6 +59,7 @@ int main()
         
     }
     
+    //display the gross wages for each employee
     for (int count = 0; count < SIZE; count++)
     {
         cout << "Employee #:" << empID[count] << " gross wage is $" << wages[count] << endl;
