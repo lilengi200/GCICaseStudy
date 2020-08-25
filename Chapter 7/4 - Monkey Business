@@ -1,0 +1,95 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+int main()
+{
+    //7.4 - Monkey Business - Coded By: Quanysha Jones
+    //A local zoo wants to keep track of how many pounds of food each of its three moneys 
+    //eats each day during a typical week. Wrtie a program that sotres this information in 
+    //a two - deminsional 3 x 7 array, where each row represents a different monkey and 
+    //each column represents a different day of the week. The program should first have 
+    //the user input the data for each moneky. then it should create a report that includes 
+    //the following information. Average amount of food eaten per day by the whole family 
+    //of moneys. the least amount of food eaten during the week by any one money. the 
+    //greatest amount of food eaten during the week by any monkey. do not accept negative 
+    //numbers of pounds of food eaten.  
+    
+    const int Days_of_Week = 7; //represents differentday of the week
+    const int Each_Monkey = 3; //represents a different monkey
+    int Monkey,Day, least, greatest;
+    double AveragePounds;
+    double TotalPounds = 0;
+    double Pounds[Each_Monkey][Days_of_Week]; //array with 3 rows and 7 columns
+    
+    
+    cout << "This program will help keep track of how many pounds of food each of the 3 monkeys eat each day" << endl;
+    cout << endl;
+    
+    //get pounds for each monkey
+    for (Monkey = 0; Monkey < Each_Monkey; Monkey++)
+    {
+        for (Day = 0; Day < Days_of_Week; Day++)
+        {
+            cout << "Monkey #" << (Monkey +1 );
+            cout << ", Pounds ate on day #" << (Day +1) << ": "; 
+            cin >> Pounds[Monkey][Day];
+            
+            while (Pounds[Monkey][Day] < 0) //no negative numbers
+            {
+                cout << "Please enter a positive number: " << endl;
+                cin >> Pounds[Monkey][Day];
+            }
+        }
+        cout << endl;
+    }
+    
+    //collectes the total pounds for the first loop
+    for (Monkey = 0; Monkey < Each_Monkey; Monkey++)
+    {
+        for (Day = 0; Day < Days_of_Week; Day++)
+        {
+            TotalPounds += Pounds[Monkey][Day]; 
+        }
+    }
+    
+    //average amount of food eaten per Day
+    cout << endl;
+    cout << setprecision(2) << fixed;
+    AveragePounds = TotalPounds/Days_of_Week;
+    cout << "The average amount of food eaten per day by the whole family of monkeys is " << AveragePounds << "lbs" << endl;
+    
+    //The least/greatest amount of food eaten
+    least = Pounds[0][0];
+    greatest = Pounds[0][0];
+    
+    //find the L/G 
+    
+    for (Monkey = 0 ; Monkey < Each_Monkey; Monkey++)
+    {
+        for (Day = 0; Day < Days_of_Week; Day++)
+        {
+            if (Pounds[Monkey][Day] < least)
+            {
+                least = Pounds[Monkey][Day];
+                
+            }
+            if (Pounds[Monkey][Day] > greatest)
+            {
+                greatest = Pounds[Monkey][Day];
+            }
+        }
+        
+    }
+    
+    cout << "The least amount of food eaten during the week by any of one money is: " << least << "lbs" << endl;
+    cout << "The greatest amount of food eaten during the week by any of one money is: " << greatest << "lbs" << endl;
+
+    return 0;
+}
