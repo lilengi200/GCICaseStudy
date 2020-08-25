@@ -1,0 +1,68 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+int main()
+{
+    //7.10 - Payroll - Coded by: Quanysha Jones
+    //write a program that uses the following arrays: empID: an array of seven long integers 
+    //to hold employees identification numbers. The array should be initialized with the 
+    //following numbers: 5658845 4520125 7895122 8777541 8451277 1302850 7580489. hours: an 
+    //array of seven integers to hold numbers of hours by each employee. payrate: an array of 
+    //seven doubles to hold each employee's hourly pay rate. wages: an array of seven doubles 
+    //to hold each employee's gross wages. the program should relate the data in each array 
+    //through the subscripts. the program should display each employee number and ask the user to 
+    //enter that employe's hours and pay rate. it should then calculate the gross wages for 
+    //that employe( hours times pay rate) and store them in the wages array. after the data 
+    //has been entered for all employees, the program should display each employee's 
+    //identification number and gross wages. do not accept negative values for hours or numbers 
+    //less than 6.00 for pay rate
+    
+    
+    int SIZE = 7, total;
+    long int empID[SIZE] = {5658845, 4520125, 7895122, 8777541, 8451277, 1302850, 7580489};
+    int hours[SIZE];
+    double payRate[SIZE], wages[SIZE];
+    
+    for (int count = 0; count < SIZE; count++)
+    {
+        cout << "Enter info for Employee #" << empID[count] << ": " << endl;
+        cout << "Hours: ";
+        cin >> hours[count];
+        
+        while (hours[count] < 0) //no negative numbers
+        {
+            cout << endl;
+            cout << "Please enter positive hours: ";
+            cin >> hours[count];
+        }
+        cout << endl;
+        cout << "Pay rate: ";
+        cin >> payRate[count];
+        
+        while (payRate[count] < 6.00) // no pay rate under $6.00
+        {
+            cout << endl;
+            cout << "Please enter pay rate more than $6.00: " << endl;
+            cin >> payRate[count];
+        }
+        
+        wages[count] = hours[count] * payRate[count]; //calculate the gross wages for employee
+        
+        
+    }
+    
+    for (int count = 0; count < SIZE; count++)
+    {
+        cout << "Employee #:" << empID[count] << " gross wage is $" << wages[count] << endl;
+    }
+    
+
+    return 0;
+}
