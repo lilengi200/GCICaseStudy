@@ -1,0 +1,108 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+//int Students = 5, Test = 4;
+double Students_Score[5][4];
+
+double getAverage(double[][4], int);
+char displayGrades(double);
+
+int main()
+{
+    //7.13 - Grade Book - Coded by: Quanysha Jones
+    //A teacher has 5 students who have taken 4 test. the teacher uses the following 
+    //grading scale to assign a letter grade to a student, based on the average of his or 
+    //her for test scores. write a program that uses 2-D array of characters to hold the 
+    //five students' letter grades, and five single dimensional arrays of four dobules to 
+    //hold each student's set of test scores. the program should allow the user to enter 
+    //each student's name and his or her four test scores. it should then calculate and 
+    //display each student's average test score and letter grade based on the average. 
+    //do no accept test scores less than 0 or greater than 100.
+    
+    double Student_Average[5]; //average for 5 students
+    char Grades[5]; //hold grades for 5 students
+    string Student_Name[5]; //holds students name 
+    
+    cout << "This program will act as a grade book for our local teachers." << endl;
+    cout << "finding the student's letter grade & average of the 4 grades " << endl;
+    
+    //get student name 
+    for (int student = 0; student < 5 ; student++)
+    {
+        cout << "Student #" << (student + 1) << " name is: ";
+        cin >> Student_Name[student];
+        
+        //test score for each test
+        for (int test = 0; test < 4; test++)
+        {
+            cout << "Test score #" << (test+1) << ": ";
+            cin >> Students_Score[student][test];
+            
+            while (Students_Score[student][test] < 0 || Students_Score[student][test] > 100)
+            {
+                cout << "Enter a value between 0 and 100: ";
+                cin >> Students_Score[student][test];
+            }
+            //calculate average
+            Student_Average[student] = getAverage(Students_Score,student);
+            //display Grades
+            Grades[student] = displayGrades(Student_Average[student]);
+        }
+        
+    }
+    
+   for (int count = 0 ; count < 5; count++)
+   {
+       cout << Student_Name[count] << "'s average test score is "; 
+       cout << Student_Average[count] << ". The letter grade based on your average is " << Grades[count] << endl;
+       
+   }
+ 
+
+    return 0;
+}
+
+double getAverage(double Students_Score[][4], int student)
+{
+    double Total= 0, Student_Average;
+    //get total score from current row (student)
+    for (int count = 0; count < 4; count++)
+    {
+        Total += Students_Score[student][count];
+    }
+    //get average, typecast to double
+    Student_Average = (double)Total/4;
+
+    return Student_Average;
+}
+
+
+char displayGrades(double Student_Average)
+{
+    if (Student_Average >= 90 && Student_Average <= 100)
+    {
+        return 'A';
+    }
+    else if (Student_Average >= 80 && Student_Average <= 89)
+    {
+        return 'B';
+    }
+    else if (Student_Average >= 70 && Student_Average <= 79)
+    {
+        return 'C';
+    }
+    else if (Student_Average >= 60 && Student_Average <= 69)
+    {
+        return 'D';
+    }
+    else
+    {
+        return 'F'; //F
+    }
+}
