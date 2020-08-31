@@ -1,0 +1,67 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+int Find_Lucky_Num(int [], int , int );
+const int SIZE = 10;
+
+int main()
+{
+    //Chapter 8.2 - Lottery Winner - Coded by: Quanysha Jones
+    //A Lottery tickets buyer purchases 10 tickets a week, alway playing the same 10 5-digit 
+    //"lucky" combinations. Write a program that initializes an array or a vector with these 
+    //numbers and then let's the player enter the week's winning 5 digit number. the program 
+    //should perform a linear search through the list of player's numbers and report whether 
+    //or not one of the tickets is a winner this week. 
+    //here's the numbers: 13579 26791 26792 33445 55555 62483 77777 79422 85647 93121
+    
+    
+    int Lucky_Num[SIZE] = {13579, 26791, 26792, 33445, 55555, 62483, 77777, 79422, 85647, 93121};
+    int results, Num_Picked;
+    
+    cout << "This program will allow user to enter their lotto number" << endl;
+    cout << "and check to see if it's part of the lucky number series" << endl;
+    cout << endl;
+    cout << "Enter the a 5-digit number that you think might be part of the lucky number series: " << endl;
+    cin >> Num_Picked;
+    
+    results = Find_Lucky_Num(Lucky_Num, SIZE, Num_Picked); 
+    
+    //if find_lucky_num returned -1 , then user input is not in list
+    if (results == -1)
+    {
+        cout << "We did not find " << Num_Picked << endl;
+    }
+    else 
+    {
+        cout << "Found " << Num_Picked << ", it's a lucky number. #" ; 
+        cout << (results + 1) << " out of 10" << endl;
+    }
+
+    return 0;
+}
+
+int Find_Lucky_Num(int list[], int numElems, int value)
+{
+    int index = 0; //used as a subscript to search array
+    int position = -1; //to record position of search value
+    bool found = false; //flag to indicate if the value was found
+    
+    
+    while (index < numElems && !found)
+    {
+        if (list[index] == value) //if value is found
+        {
+            found = true; //set the flag
+            position = index; //record the value's subscript
+        }
+        index++;
+    }
+    return position; // return position or -1
+}
