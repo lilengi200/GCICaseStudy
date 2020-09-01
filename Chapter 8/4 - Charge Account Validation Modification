@@ -1,0 +1,135 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+void selectionSort(int [], int );
+int Find_Acct_Num(int [], int , int );
+const int SIZE = 18;
+
+int main()
+{
+    //Chapter 8.4 - Charge Account Validation Modifaction - Coded by: Quanysha Jones
+    //modify the program you wrote for program 1 (charge account validation) so it 
+    //performs a binary search to locate valid account numbers. use the selection stort 
+    //algorithm to sort the array before the binary search performed.
+    
+    //Wrtie a program that lets the user enter a charge account #. The program should 
+    //determine if the number is vaild by checking for it in the following list..5658845, 4520125, 7895122, 8777541, 8451277, 1302850, 8080152, 
+    //4562555, 5552012, 5050552, 7825877, 1250255, 1005231, 6545231, 3852085, 7576651, 7881200, 4581002
+    //The list of numbers above should be initialized in a single dimensional array. a 
+    //simple linear search should be used to locate the number entered by the user. if the 
+    //user enters a number that is in the array, the program should diplay a message saying 
+    //that the number is valid. if the user enters a number that is not in the array, the 
+    //program should display a message indicating that the number is invalid.
+    
+    int Acct_Num[SIZE] = {5658845, 4520125, 7895122, 8777541, 8451277, 1302850, 8080152, 
+                        4562555, 5552012, 5050552, 7825877, 1250255, 1005231, 6545231, 
+                        3852085, 7576651, 7881200, 4581002};
+    int results, Charge_Acct;
+    
+    cout << "This program will allow any user to enter a charge account number" << endl;
+    cout << "and check to see if it's valid" << endl;
+    cout << endl;
+    cout << "Enter the charge account number you're looking for: " << endl;
+    cin >> Charge_Acct;
+    
+    //sort the values
+    selectionSort(Acct_Num, SIZE);
+    
+    //call the function 
+    results = Find_Acct_Num(Acct_Num, SIZE, Charge_Acct);
+    
+    //display findings based on user input
+    if (results == -1)
+    {
+        cout << "We did not find " << Charge_Acct << endl;
+    }
+    else 
+    {
+        cout << "Found " << Charge_Acct << ", it's located in folder #" ; 
+        cout << (results + 1) << " out of 18" << endl;
+    }
+
+    return 0;
+}
+//this fuction performs an ascending order selection sort on array. 
+//size is the number of elements in the array.
+void selectionSort(int array[], int size)
+{
+    int startScan, minIndex, minValue;
+    
+    for (startScan = 0; startScan < (size - 1); startScan++)
+    {
+        minIndex = startScan;
+        minValue = array[startScan];
+        for (int index = (startScan + 1); index < size; index++)
+        {
+            if (array[index] < minValue)
+            {
+                minValue = array[index];
+                minIndex = index; 
+            }
+        }
+        array[minIndex] = array[startScan];
+        array[startScan] = minValue;
+    }
+}
+
+//binary search on the integer array. array, which has a maximum of size elements, 
+//is searched for the number stored in value. if the number is found, its array subscribts 
+//is returned. otherwise, -1 is returned indicating the value was not in the array.
+int Find_Acct_Num(int list[], int numElems, int value)
+{
+    int first = 0,  //first array element
+        last = numElems - 1, //last array element
+        middle,         //midpoint of search
+        position = -1; //position of search value
+    bool found = false; //flag
+    
+    while (!found && first <= last)
+    {
+        middle = (first + last)/2; //calculate midpoint
+        if (list[middle] == value) //if value is found at mid
+        {
+            found = true; 
+            position = middle; 
+        }
+        else if (list[middle] > value) //if value is in lower half
+        {
+            last = middle - 1 ; 
+        }
+        else
+        {
+            first = middle + 1; //if value is in upper half
+        }
+    }
+    return position; 
+}
+
+//linear search 
+/*
+int Find_Lucky_Num(int list[], int numElems, int value)
+{
+    int index = 0; //used as a subscript to search array
+    int position = -1; //to record position of search value
+    bool found = false; //flag to indicate if the value was found
+    
+    
+    while (index < numElems && !found)
+    {
+        if (list[index] == value) //if value is found
+        {
+            found = true; //set the flag
+            position = index; //record the value's subscript
+        }
+        index++;
+    }
+    return position; // return position or -1
+}*/
+
+
