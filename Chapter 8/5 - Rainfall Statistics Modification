@@ -1,0 +1,194 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand 
+
+using namespace std;
+
+double AverageRainfall, Lowest, Highest;
+double total= 0; // accumulator initalized
+  
+const int Num_Months = 12; //num of months
+const int String_Size = 10; //max size of each string
+int TotalRainfall[Num_Months];
+const char Months[Num_Months][String_Size] = 
+                    {"January","Febuary", "March", "April", "May", "June", "July", 
+                    "August", "September","October","November","December"};
+
+
+void Rainfall(int [], int , int );
+//void dualSort(int rainfall[], string months[], int arraySize);
+void selectionSort(int [], int, int );
+void displayRainfall();
+//const int Num_Months = 12; //num of months
+
+int main()
+{
+    //8.5 - Rainfall Statistic Modification -  Coded by Quanysha Jones 
+    //Modify the Rainfall Statisics program you for programming challenges 2 of chapter 7. the program should display a list of month
+    //sorted in order of rainfall, from highest to lowest.
+    // write a program that lets the user enter the total rainfall for each 12 months 
+    //into a array of doubles. the program should calculate and display the total rainfall 
+    //for the year, the average monthly rainfall and the months with the highest and lowest 
+    //amount.
+    /*
+    double AverageRainfall, Lowest, Highest;
+    double total= 0; // accumulator initalized
+  
+    const int Num_Months = 12; //num of months
+    const int String_Size = 10; //max size of each string
+    double TotalRainfall[Num_Months];
+    const char Months[Num_Months][String_Size] = 
+                    {"January","Febuary", "March", "April", "May", "June", "July", 
+                    "August", "September","October","November","December"};*/
+    
+    Rainfall(TotalRainfall,Num_Months, String_Size);
+    
+    //sort rainfall
+    selectionSort(TotalRainfall, Num_Months, String_Size);
+    //dualSort(TotalRainfall, Months, Num_Months);
+    
+    //display rainfall
+    displayRainfall();
+    
+    //display the total rainfall for the year
+    cout << "The total rainfall for the year is " << total << endl;
+    
+    // find the average 
+    AverageRainfall = total/Num_Months;
+    cout << "The average rainfall was " << AverageRainfall << endl;
+    
+    /*
+    //find the Highest and Lowest
+    Lowest = TotalRainfall[0];
+    Highest = TotalRainfall[0];
+    
+    for (int count = 0 ; count < Num_Months; count++)
+    {
+        if (TotalRainfall[count] < Lowest)
+        {
+            Lowest = TotalRainfall[count];
+        }
+        if (TotalRainfall[count] > Highest)
+        {
+            Highest = TotalRainfall[count];
+        }
+    }
+    
+    cout << "The highest rainfall was " << Highest << " and the lowest was " << Lowest;
+    */
+    
+    return 0;
+}
+
+//function used to get rainfall from user
+void Rainfall(int array[], int numEmt, int size)
+{
+    for (int count = 0 ; count < Num_Months; count++)
+    {
+       cout << "What is the total rainfall for the month of " << Months[count] << "?" <<  endl;
+       cin >> TotalRainfall[count]; 
+       
+       while (TotalRainfall[count] < 0) //no negative numbers
+       {
+           cout << "Please enter a positive number " << endl;
+           cin >> TotalRainfall[count];
+       }
+       
+       total += TotalRainfall[count]; 
+    }
+}
+/*
+void dualSort(int rainfall[], string months[], int arraySize)
+{
+    //will sort in DESCENDING order
+
+    //declare variables to start from beginning of array
+    //and to store the temporary maximum value and index
+    //and month
+    int startScan, maxIndex, maxValue;
+    string tempMonth;
+
+    //begin looping on all elements until second to last
+    for(startScan = 0; startScan < arraySize-1; startScan++)
+    {
+        //initialize minValue and minIndex to first element
+        maxValue = rainfall[startScan];
+        maxIndex = startScan;
+        tempMonth = months[startScan];
+        //loop on all remaining elements of array
+        for(int index = startScan+1; index < arraySize; index++)
+        {
+            //check if current element is greater than current minValue
+            if(rainfall[index] > maxValue){
+                //update maxValue and maxIndex to
+                //respective values of current element
+                maxValue = rainfall[index];
+                maxIndex = index;
+                //also store that month's name to tempMonth
+                tempMonth = months[index];
+            }
+        } //inner for loop ends here
+        //put the current [startScan] element to its final position
+        rainfall[maxIndex] = rainfall[startScan];
+        //put greatest value first
+        rainfall[startScan] = maxValue;
+        //put the current [startScan] month to its final position
+        months[maxIndex] = months[startScan];
+        //update current month's name to the one with the greatest rainfall
+        months[startScan] = tempMonth;
+    }
+}*/
+
+//this fuction performs an ascending order selection sort on array. 
+//size is the number of elements in the array.
+void selectionSort(int rainfall[], int month, int size) ***Error here, Not Working
+{
+    int startScan, maxIndex, maxValue, tempMonth;
+    
+    //begin looping on all elements until second to last
+    for (startScan = 0; startScan < (size - 1); startScan++)
+    {
+        //initialize minValue and minIndex to first element
+        maxIndex = startScan;
+        maxValue = rainfall[startScan];
+        tempMonth = month[startScan];
+        //loop on all remaining elements of array
+        for (int index = (startScan + 1); index < size; index++)
+        {
+            //check if current element is greater than current minValue
+            if (rainfall[index] > maxValue)
+            {
+                //update maxValue and maxIndex to
+                //respective values of current element
+                maxValue = rainfall[index];
+                //also store that month's name to tempMonth
+                tempMonth = month[index];
+                maxIndex = index; 
+            }
+        }
+        //put the current [startScan] element to its final position
+        rainfall[maxIndex] = rainfall[startScan];
+        //put the current [startScan] month to its final position
+        month[maxIndex] = month[startScan];
+        //put greatest value first
+        rainfall[startScan] = maxValue;
+        //update current month's name to the one with the greatest rainfall
+        month[startScan] = tempMonth;
+    }
+}
+
+void displayRainfall()
+{
+    cout << "Month" << setw(8) << "Total Rainfall" << endl;
+    cout << "--------------------------" << endl; 
+    
+    for (int count = 0; count < Num_Months; count++)
+    {
+        cout << Months[count] << setw(8)<< TotalRainfall[count] << endl;
+    }
+}
+
