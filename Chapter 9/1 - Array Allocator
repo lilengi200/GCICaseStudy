@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+int *dynamically(int);
+
+int main()
+{
+    //9.1 - Array Allocator - Coded by Quanysha Jones
+    //write a function that dynamically allocates an array of intergers. the function 
+    //should accept an integer argument indicating the number of elements to allocate. 
+    //The function should return a pointer to the array. 
+
+    
+    return 0;
+}
+
+int *dynamically(int numElem)
+{
+    int *arr; //array holds numbers
+    
+    //return null if num is zero or negative
+    if (numElem <= 0)
+    {
+        return NULL;
+    }
+    
+    //dynamically allocate the array
+    arr = new int [numElem];
+    
+    return arr; 
+    
+}
