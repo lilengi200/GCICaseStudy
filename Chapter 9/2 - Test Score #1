@@ -11,7 +11,7 @@ double AverageScore;
 int NumOfTestScore, *scores; 
 void displayTestScores();
 void sortTestscore(int [], int);
-int calculateAverage(int [], int );
+double calculateAverage(int [], int );
 
 int main()
 {
@@ -89,7 +89,7 @@ void sortTestscore(int array[], int size)
     }
 }
 
-int calculateAverage(int array[], int size)
+double calculateAverage(int array[], int size)
 {
     double TotalScore = 0.0, AverageScore;
     //calculate Average of test scores
@@ -98,7 +98,7 @@ int calculateAverage(int array[], int size)
         TotalScore += array[count];
     }
     
-    AverageScore = (double)TotalScore/(double)size;
+    AverageScore = (double)TotalScore/size;
     
     return AverageScore;
 }
