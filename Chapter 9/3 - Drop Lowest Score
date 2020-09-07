@@ -1,0 +1,152 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+double AverageScore;
+int NumOfTestScore, *scores, lowestScore; 
+void displayTestScores();
+int getLowestScore(int [], int);
+void sortTestscore(int [], int);
+double calculateAverage(int [], int );
+
+int main()
+{
+    //9.3 - Drop Lowest Score - Coded by Quanysha Jones
+    //modify problem 2 above so the lowest test score is dropped. this score shouldn't be
+    //included in the calculations of the average. 
+    //
+    //Write a program that dynamically allocates an array large enough to hold a user 
+    //defined number of test scores. once all the scores are entered, the array should be 
+    //passed to a function that sorts them in ascending order. another function should be 
+    //called that calculates the average score. the program should display the sorted list 
+    //of scores and averages with appropriate headings. use pointer notation rather than 
+    //array notation whenever possible. do not accept negative numbers for test score.
+    
+    //int *scores;
+    
+    cout << "This program will calculate the test score average for the amount of test scores" << endl;
+    cout << "you tell it." << endl;
+    cout << endl;
+    cout << "How many test scores are we dealing with? " << endl;
+    cin >> NumOfTestScore; 
+    
+    //dynamically allocate an array large enough to hold that many test score.
+    scores = new int[NumOfTestScore]; 
+    
+    //collect test scores
+    cout << "Enter the test scores: " << endl; 
+    for (int count = 0; count < NumOfTestScore; count++)
+    {
+        cout << "for test score #" << (count + 1) << endl;
+        cin >> scores[count];
+        
+        //no negative scores
+        while (*scores <= -1)
+        {
+            cout << "Enter a positive test score: " << endl;
+            cin >> scores[count];
+        }
+    }
+    
+    //call the sort function
+    sortTestscore(scores, NumOfTestScore);
+    
+    //find the lowest score
+    lowestScore = getLowestScore(scores, NumOfTestScore);
+    
+    //call the average score function
+    AverageScore = calculateAverage(scores, NumOfTestScore);
+    //display function
+    displayTestScores();
+
+    return 0;
+}
+
+//this function will sort the test score array in ascending order
+void sortTestscore(int array[], int size)
+{
+    int startScan, minIndex, minElem;
+    //int *minElem;
+    
+    //begin looping on all elements until second to last
+    for (startScan = 0; startScan < (size - 1); startScan++)
+    {
+        //initialize minElem(NumOfTestScore) and minIndex to first element
+        minIndex = startScan;
+        minElem = array[startScan];
+        
+        //loop on all remaining elements of array
+        for (int index = (startScan + 1); index < size; index++)
+        {
+            //check if current element is greater than "NumOfTestScore"
+            if (array[index] < minElem)
+            {
+                //update minElem and minIndex to
+                //respective values of current element
+                minElem = array[index];
+                minIndex = index; 
+            }
+        }
+        array[minIndex] = array[startScan];
+        array[startScan] = minElem;
+    }
+}
+//this function accepts the array and it's size as argument
+int getLowestScore(int array[], int size)
+{
+    //hold the lowest value
+    int lowest;
+    
+    //get the first array which is the lowest based on the sorting
+    lowest = array[0];
+    
+    //step through the rest of the array. when a value less than lowest is found, assign it 
+    //to the lowest.
+    for (int count = 0; count < size; count++)
+    {
+        if (array[0]< lowest)
+        {
+            lowest = array[count];
+        }
+    }
+    
+    return lowest;
+}
+
+//this function will find the average score 
+double calculateAverage(int array[], int size)
+{
+    double TotalScore = 0.0, AverageScore;
+    //calculate Average of test scores
+    for (int count = 0; count < size; count++)
+    {
+        TotalScore += array[count];
+    }
+    
+    TotalScore -= lowestScore;
+    AverageScore = (double)TotalScore/(size - 1);
+    
+    return AverageScore;
+}
+
+
+//display the test scores in ascending order
+void displayTestScores()
+{
+    cout << endl;
+    cout << "Test Scores" << endl;
+    cout << "----------" << endl; 
+    
+    for (int count = 0; count < NumOfTestScore; count++)
+    {
+        cout << scores[count] << endl;
+    }
+    
+    cout << endl;
+    cout << "The average test score is " << AverageScore;
+}
