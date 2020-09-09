@@ -1,0 +1,69 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand 
+
+using namespace std;
+
+int main()
+{
+    //Chapter 9.5 - getString Function - Coded by Quanysha Jones
+    //write a function name getString that has a local char array of 80 elements. 
+    //The function should ask the user to enter a sentence, and store the sentence in the 
+    //array. Then the function should dyamically allocate a char array just large enough 
+    //to hold the sentence, plus the null terminatior. it should copy the sentence to the 
+    //dynamcially allocated array, and then returned a pointer to the array. demonostrate 
+    //the function in a complete program. 
+    char *NewString_1, *TotalChar;
+    char* getString();
+    
+    //cout << "Enter a Sentence with only 79 characters or less: " << endl;
+    //char* Sentence_1 = 
+    NewString_1 = getString();
+    
+    cout << "In Main, this is with the new amount of space for your Sentence.." << endl;
+    cout << "Sentence(2):" << NewString_1 << endl;
+    
+    
+    //Because getString() use dynamic allocation or the new keyword, you'll have to delete those dynamic array
+    delete [] NewString_1;
+    
+    return 0;
+}
+
+char *getString()
+{
+    const int SIZE =80; 
+    char Sentence[SIZE];
+    int TotalChar = 0;
+    
+    cout << "Within the Function..." << endl;
+    cout << "Enter a Sentence(1) with only 79 characters: " << endl;
+    cin.getline(Sentence, SIZE);
+    
+    //get total characters used so we can change the size of the memory
+    cout << "Let's see how many characters did you use..." << endl;
+    for (int count = 0; Sentence[count] != 0; ++count)
+    {
+	    //find the total characters here
+		TotalChar++;
+    }
+    cout << "Total characters " << TotalChar << " out of " << SIZE << endl;
+    
+    //dynamically allocate an array large enough to hold that many test score.
+    char *PtrString = new char[TotalChar + 1];
+    
+    for (int count = 0; Sentence[count] != 0; ++count)
+    {
+	    PtrString[count] = Sentence[count]; 
+    }
+    
+    PtrString[TotalChar] = '\0'; //the end char of dynamic string must be null
+    
+    return PtrString;
+
+    
+}
