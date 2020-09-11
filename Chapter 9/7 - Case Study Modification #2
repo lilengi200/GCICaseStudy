@@ -1,0 +1,109 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand 
+
+using namespace std;
+
+
+//function prototypes
+void arrSelectSort(int *[], int);
+void showArray(int [], int);
+void showArrPtr(int *[], int);
+
+int main()
+{
+    //Chapter 9.7 - Case Study Modification #1 - Coded by Quanysha Jones
+    //modify program 9-17 (the united cause case study program) so the arrptr array is 
+    //sorted in desending order
+    
+    //this program shows the donations made to the united cause by the employees of CK 
+    //graphics, Inc. it displays the donations in order from lowest to highest and in the 
+    //orginal order they were recieved.
+    
+    const int NumOfDonations = 15; 
+    //an array containing the donations amount
+    int Donations[NumOfDonations] = {5,100,5,25,10,
+                                    5,25,5,5,100,
+                                    10,15,10,5,10};
+    
+    //an array of pointers to int.
+    int *arrPtr[NumOfDonations]; 
+    
+    //each element of arrayPtr is a pointer to int. make each element point to an element 
+    //in the donation array.
+    for (int count = 0; count < NumOfDonations; count++)
+    {
+        arrPtr[count] = &Donations[count];
+    }
+    
+    //sort the element of the array of pointers
+    arrSelectSort(arrPtr,NumOfDonations);
+    
+    //display the donations using the array of pointers. This will display them in sorted 
+    //order.
+    cout << "The donations, sorted in ascending order, are: \n";
+    showArrPtr(arrPtr, NumOfDonations);
+    
+    //display the orginal donations in their orginal order.
+    cout << "The donations in their orignal order, are: \n";
+    showArray(Donations,NumOfDonations);
+
+    
+    return 0;
+}
+
+//this function performs an ascending order selection sort on array, which is an array of pointers.
+//each element of array points to an element of a second array. after the sort, array will point to the 
+//elements of the second array in ascending order.
+void arrSelectSort(int *array[], int size)
+{
+   int startScan, maxIndex;
+   int *maxElem;
+   //begin looping on all elements until second to last
+   for (startScan = 0; startScan < (size - 1); startScan++)
+   {
+       //initialize maxElem(NumOfTestScore) and maxIndex to first element
+       maxIndex = startScan;
+       maxElem = array[startScan];
+       //loop on all remaining elements of array
+       for (int index = (startScan +1); index < size; index++)
+       {
+           //check if current element is greater than "maxElem"
+           if (*(array[index]) > *maxElem)
+           {
+               //update maxElem and maxIndex to
+               //respective values of current element
+               maxElem = array[index];
+               maxIndex = index;
+           }
+       }
+       array[maxIndex] = array[startScan];
+       array[startScan] = maxElem;
+   }
+}
+
+//this function displays the content of array. size is the number of elements
+void showArray(int array[], int size)
+{
+    for (int count = 0; count < size; count++)
+    {
+        cout << array[count] << " ";
+    }
+    cout << endl;
+}
+
+//the function displays the contents of the array pointed to by array. size is 
+//the number of elements
+void showArrPtr(int *array[], int size)
+{
+    for (int count = 0 ; count < size; count++)
+    {
+        cout << *(array[count]) << " ";
+    }
+    cout << endl;
+}
+    
