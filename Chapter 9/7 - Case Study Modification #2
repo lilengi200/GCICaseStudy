@@ -16,7 +16,7 @@ void showArrPtr(int *[], int);
 
 int main()
 {
-    //Chapter 9.7 - Case Study Modification #1 - Coded by Quanysha Jones
+    //Chapter 9.7 - Case Study Modification #2 - Coded by Quanysha Jones
     //modify program 9-17 (the united cause case study program) so the arrptr array is 
     //sorted in desending order
     
