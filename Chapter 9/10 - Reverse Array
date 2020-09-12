@@ -1,0 +1,71 @@
+#include <iostream>
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand 
+
+using namespace std;
+
+
+//function prototypes
+int* ReverseSort(int [], int );
+
+
+int main()
+{
+    //Chapter 9.10 - Reverse Array - Coded by Quanysha Jones
+    //write function that accepts an int array and the array's size as arguments. 
+    //the function should create a copy of the array, except that the element values 
+    //should be reverse in the copy. the function should return a pointer to the new aaray. 
+    //demonstrate the function in a complete program
+    
+    const int NumOfDonations = 15; 
+    //an array containing the donations amount
+    int Donations[NumOfDonations] = {5,100,5,25,10,
+                                    5,25,5,5,100,
+                                    10,15,10,5,10};
+    
+    //print orginal array
+    cout << "This is the Orginal Array:" << endl;
+    for (int count = 0; count < NumOfDonations; count++)
+    {
+        cout << Donations[count]<< "  ";
+    }
+    
+    //declare a pointer that will get the address
+    //of the new, reversed array
+    int *ReverseArray = ReverseSort(Donations, NumOfDonations);
+    
+    //print values of new array
+    cout << "\n\nReversed array:\n";
+    for(int count = 0; count < NumOfDonations; count++)
+    {
+        cout << (ReverseArray[count]) << "  ";
+    }
+
+    return 0;
+    
+}
+// this function hsould create a copy of the array, except that the element values 
+//should be reverse in the copy
+
+int* ReverseSort(int array[], int size)
+{
+    //dynamically allocate a new array
+    int *ptr = new int[size];
+
+    //save the values from original array
+    //into the new one, in reverse order
+    for(int count = 0; count < size; count++)
+    {
+        //ptr + SIZE - 1 - count will be the last element of new array
+        *(ptr + size - 1 - count) = (array[count]);
+    }
+
+    //return the pointer to new array
+    return ptr;
+       
+}
+
