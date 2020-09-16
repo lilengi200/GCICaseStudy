@@ -36,13 +36,13 @@ int main()
 
 void BackwardString(char *sentence, int size)
 {
-    int n = strlen(sentence); //get the size of the sentence
+    size = strlen(sentence); //get the size of the sentence
    
    
-    for (int count = 0; count < n/2; count++)
+    for (int count = 0; count < size/2; count++)
     {
         //use the swap function swap(a,b)
-        swap(sentence[count], sentence[n - count - 1]);
+        swap(sentence[count], sentence[size - count - 1]);
     }
     
     cout << sentence << endl;
