@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string> //string class
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+int StringLength(char *, int);
+
+
+int main()
+{
+    //10.1 - String Length - Coded by: Quanysha Jones
+    //write a function that returns an integer and accepts a pointer to a c-string as an 
+    //argument. the function should count the number of characters in the string and return
+    //that number. demonstrate the function in a simple program that ask the user to input 
+    //a string, passes it to the function, and then displays the function's return value.
+    
+    //used a built in function to show both options
+    
+    const int SIZE = 51; 
+    char userSentence[SIZE];
+    int SenCharacter; //count the sentence
+    
+    cout<<" This program will calculate the number of characters in a sentence.."<< endl;
+    cout <<" Enter a string (up to 50 characters): ";
+    cin.getline(userSentence, SIZE);
+    
+    SenCharacter = StringLength(userSentence, SIZE);
+    
+    cout << endl;
+    cout << "Total characters you entered was " << SenCharacter;
+
+    return 0;
+}
+
+int StringLength(char *sentence, int size)
+{
+    int totalChar; //count the sentence
+    /*
+  
+    while (*sentence != '\0')
+    {
+        totalChar++;
+        sentence++;
+    }*/
+    
+    totalChar = strlen(sentence);
+    
+    return totalChar;
+    
+}
