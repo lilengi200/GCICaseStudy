@@ -1,0 +1,58 @@
+#include <iostream>
+#include <cctype>
+#include <string> //string class
+#include <cmath> // math function
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+void SentenceCap(char *);
+
+int main()
+{
+    //10.5 - Sentence Capitalizer - Coded by: Quanysha Jones
+    //Write a function that accepts a pointer to a C-String as an argument and capitalizes the first character of each sentence in the string. For instance, if the string arguemnt is "hello. my name is joe. what's your name?" the function should manipulate the string so it contains "Hello. My name is the Joe. What is your name? Demonostrate the function in a program that ask the user to input a string and then passes it to the function. the modified string should be displayed on the screen.
+     
+    const int SIZE = 100;
+    char userSentence[SIZE];
+    //char NewSentence;
+    
+    
+    cout << "This program will capitalizes the first character of each sentence in the string" << endl;
+    cout <<" Enter a string (up to 99 characters): ";
+    cin.getline(userSentence, SIZE);
+   
+    //call the function
+    SentenceCap(userSentence);
+    
+    return 0;
+}
+
+void SentenceCap(char *sentence)
+{
+    *sentence = toupper(*sentence); //beginning of the array is cap
+    
+    //character is not null
+    while (*sentence != '\0')
+    {
+        //display the character stored in the current subscript
+        cout << *sentence;
+        //if next space is whitespace, period, exclamation point or question mark
+        if (*(sentence + 1) == ' ' && (*sentence == '.' || *sentence == '!' || *sentence == '?'))
+        {
+            //Capitalize the subscript after the next subscript
+            *(sentence + 2) = toupper(*(sentence + 2));
+            //display the whitespace stored in the following subscript
+            cout << *(sentence + 1) << endl;
+        }
+        sentence++; //move to the next
+    }
+    return;
+}
+
+
+
