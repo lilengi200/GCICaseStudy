@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int BackwardString(char *, int);
+void BackwardString(char *, int);
 
 
 int main()
@@ -34,7 +34,7 @@ int main()
     return 0;
 }
 
-int BackwardString(char *sentence, int size)
+void BackwardString(char *sentence, int size)
 {
     int n = strlen(sentence); //get the size of the sentence
    
