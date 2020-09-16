@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string> //string class
+#include <cmath> // math function
+#include <iomanip> 
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+int BackwardString(char *, int);
+
+
+int main()
+{
+    //10.2 - Backward String - Coded by: Quanysha Jones
+    //write a function that accepts a pointer to a c-string as an argument and displays its 
+    //contents backward. for instance, if the argument is "Gravity" the function should 
+    //display "ytivarG." Demonstrate the function in a program that asks the user to input 
+    //a string and then passes it to the function.
+    
+    
+    const int SIZE = 51; 
+    char userSentence[SIZE];
+    char BackwardSentence; //count the sentence
+    
+    cout<<" This program will diplay the sentence you enter backward.."<< endl;
+    cout <<" Enter a string (up to 50 characters): ";
+    cin.getline(userSentence, SIZE);
+    
+    BackwardString(userSentence, SIZE);
+
+    return 0;
+}
+
+int BackwardString(char *sentence, int size)
+{
+    int n = strlen(sentence); //get the size of the sentence
+   
+   
+    for (int count = 0; count < n/2; count++)
+    {
+        //use the swap function swap(a,b)
+        swap(sentence[count], sentence[n - count - 1]);
+    }
+    
+    cout << sentence << endl;
+    
+}
