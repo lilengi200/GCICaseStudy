@@ -1,0 +1,74 @@
+#include <iostream>
+#include <cctype>
+#include <string> //string class
+#include <cmath> // math function
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+int VowelLetters(char *);
+int ConsonantLetters(char *);
+
+int main()
+{
+    //10.5 - Sentence Capitalizer - Coded by: Quanysha Jones
+    //Write a function that accepts a pointer to a C-String as its argument. The function should count the number of vowels appearing in the string and return that number. write another function that accepts a pointer to a c-string as its argument. this function should count the number of consonants appearing in the string and return that number.
+     
+    const int SIZE = 100;
+    char userSentence[SIZE];
+    int VowelNum, ConsonantNum;
+    
+    cout << "This program will detect and calculate vowels and consonants appearing in the string" << endl;
+     
+    cout << "Enter a string (up to 99 characters): " << endl;
+    cin.getline(userSentence, SIZE);
+    
+    //call the function
+    VowelNum = VowelLetters(userSentence);
+    ConsonantNum = ConsonantLetters(userSentence);
+     
+    cout << "There are " << VowelNum << " vowels and ";
+    cout << ConsonantNum << " consonants." << endl;
+   
+    return 0;
+}
+
+int VowelLetters(char *sentence)
+{
+    int total = 0;
+    
+    //character is not null
+    while (*sentence != '\0')
+    {
+        //if sentence equals a, e, i, o ,u then count
+        if ((*sentence == 'a') || (*sentence == 'A') || (*sentence == 'e') || (*sentence == 'E') || (*sentence == 'i') || (*sentence == 'I') || (*sentence == 'o') || (*sentence == 'O') || (*sentence == 'u') || (*sentence == 'U'))
+        {
+            total++;
+            sentence++;
+        }
+        sentence++; //move to the next
+    }
+    return total;
+}
+
+int ConsonantLetters(char *sentence)
+{
+    int total = 0;
+    
+    //character is not null
+    while (*sentence != '\0')
+    {
+        //if sentence not equals a, e, i, o ,u then count
+        if ((*sentence != 'a') || (*sentence != 'A') || (*sentence != 'e') || (*sentence != 'E') || (*sentence != 'i') || (*sentence != 'I') || (*sentence != 'o') || (*sentence != 'O') || (*sentence != 'u') || (*sentence != 'U'))
+        {
+            total++;
+            sentence++;
+        }
+        sentence++; //move to the next
+    }
+    return total;
+}
