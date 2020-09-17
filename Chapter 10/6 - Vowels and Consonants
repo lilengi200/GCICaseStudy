@@ -15,8 +15,10 @@ int ConsonantLetters(char *);
 
 int main()
 {
-    //10.5 - Sentence Capitalizer - Coded by: Quanysha Jones
-    //Write a function that accepts a pointer to a C-String as its argument. The function should count the number of vowels appearing in the string and return that number. write another function that accepts a pointer to a c-string as its argument. this function should count the number of consonants appearing in the string and return that number.
+    //10.6 - Vowels and Consonants - Coded by: Quanysha Jones
+    //Write a function that accepts a pointer to a C-String as its argument. The function should count the number of 
+    //vowels appearing in the string and return that number. write another function that accepts a pointer to a c-string as its argument. 
+    //this function should count the number of consonants appearing in the string and return that number.
      
     const int SIZE = 100;
     char userSentence[SIZE];
