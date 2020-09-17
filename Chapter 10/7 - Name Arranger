@@ -1,0 +1,63 @@
+#include <iostream>
+#include <cctype>
+#include <string> //string class
+#include <cmath> // math function
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+int main()
+{
+    //10.7 - Name Arranger - Coded by: Quanysha Jones
+    //Write a program that asks for the user's first name , middle name and last name. the names should be stored in three different 
+    //characters arrays, the program should then store, in a fourth, the name arrang in the following manner: the last name followed 
+    //by the first name and a space , followed my the middle name. for example, if the user enterd "carol lynn smith", it should store 
+    //"smith, carol lynn" in the fourth array. Display the contents of the fourth array on the screen.
+    
+    char FirstName[20], MiddleName[15], LastName[25];
+    char FullName[65];
+    int count1 = 0, count2 = 0;
+    
+    cout << "This program will ask the user for the first, middle, last name.." << endl;
+    cout << "Enter your First Name:";
+    cin >> FirstName;
+    cout << endl;
+    cout << "Enter your Middle Name: ";
+    cin >> MiddleName;
+    cout << endl;
+    cout << "Enter your Last Name: ";
+    cin >> LastName;
+    
+    while (LastName[count1] != '\0')
+    {
+        //move last name to first array slot
+        FullName[count2++] = LastName[count1++];
+    
+    }
+    FullName[count2++] = ','; //add commma after last array but incrementing it one array
+    FullName[count2++] = ' '; //add space after comma
+    count1 = 0; //clear counter to start new move
+    while (FirstName[count1] != '\0')
+    {
+        //in the array it looks like [lastname],[space] add first name to full name
+        FullName[count2++] = FirstName[count1++];
+    }
+    //increment one and add space
+    FullName[count2++] = ' ';
+    count1 = 0;
+    
+    while(MiddleName[count1] != '\0')
+    {
+        //[lastname][,][firstname] now we need to add middle name
+        FullName[count2++] = MiddleName[count1++];
+    }
+    FullName[count2++] = '\0'; //add null to array
+    
+    cout << "Your full name is " << FullName << endl;
+    
+    return 0;
+}
