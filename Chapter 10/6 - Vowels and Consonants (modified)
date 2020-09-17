@@ -16,10 +16,13 @@ int ConsonantLetters(char *);
 int main()
 {
     //10.6 - Vowels and Consonants - Coded by: Quanysha Jones
-    //Write a function that accepts a pointer to a C-String as its argument. The function should count the number of vowels appearing in the string and return that number. write another function that accepts a pointer to a c-string as its argument. this function should count the number of consonants appearing in the string and return that number.
+    //Write a function that accepts a pointer to a C-String as its argument. The function should count the number of vowels appearing in the 
+    //string and return that number. write another function that accepts a pointer to a c-string as its argument. this function should count 
+    //the number of consonants appearing in the string and return that number.
     
     //demonstrate these two functions in a program that performs the following steps:
-    //1. the user is asked to enter a string. 2. the program displays the following menu: 3. the program performs the operation selected by the user and repeats until the user selets E to exit the program.
+    //1. the user is asked to enter a string. 2. the program displays the following menu: 3. the program performs the operation selected by 
+    //the user and repeats until the user selets E to exit the program.
      
     const int SIZE = 100;
     char userSentence[SIZE];
