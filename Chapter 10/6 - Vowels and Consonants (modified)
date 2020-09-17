@@ -1,0 +1,112 @@
+#include <iostream>
+#include <cctype>
+#include <string> //string class
+#include <cmath> // math function
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+int VowelLetters(char *);
+int ConsonantLetters(char *);
+
+int main()
+{
+    //10.6 - Vowels and Consonants - Coded by: Quanysha Jones
+    //Write a function that accepts a pointer to a C-String as its argument. The function should count the number of vowels appearing in the string and return that number. write another function that accepts a pointer to a c-string as its argument. this function should count the number of consonants appearing in the string and return that number.
+    
+    //demonstrate these two functions in a program that performs the following steps:
+    //1. the user is asked to enter a string. 2. the program displays the following menu: 3. the program performs the operation selected by the user and repeats until the user selets E to exit the program.
+     
+    const int SIZE = 100;
+    char userSentence[SIZE];
+    int VowelNum, ConsonantNum;
+    char choice[2];
+    char UserChoice;
+    
+    cout << "This program will detect and calculate vowels and consonants appearing in the string" << endl;
+     
+    cout << "Here are the options available..." << endl;
+    cout << "A) Count the number of vowels in the string" << endl;
+    cout << "B) Count the number of consonants in the string" << endl;
+    cout << "C) Count both the vowel and consonants" << endl;
+    cout << "D) Enter another string" << endl;
+    cout << "E) Exit the Program" << endl;
+    cout << "Enter your choice: " << endl;
+    cin.getline(choice,2);
+    
+    UserChoice = choice[0];
+    
+    switch(UserChoice)
+    {
+        case 'a'://Count both the vowel
+        case 'A': cout << "Enter a string (up to 99 characters): " << endl;
+            cin.getline(userSentence, SIZE);
+            VowelNum = VowelLetters(userSentence);
+            cout << "There are " << VowelNum << " vowels." << endl;
+            break;
+        case 'b'://Count both the consonants
+        case 'B': cout << "Enter a string (up to 99 characters): " << endl;
+            cin.getline(userSentence, SIZE);
+            ConsonantNum = ConsonantLetters(userSentence);
+            cout << "There are " << ConsonantNum << " vowels." << endl;
+            break;
+        case 'c'://Count both the vowel and consonants
+        case 'C': cout << "Enter a string (up to 99 characters): " << endl;
+            cin.getline(userSentence, SIZE);
+            VowelNum = VowelLetters(userSentence);
+            ConsonantNum = ConsonantLetters(userSentence);
+            cout << "There are " << VowelNum << " vowels and ";
+            cout << ConsonantNum << " consonants." << endl;
+            break;
+        case 'd'://Enter another string
+        case 'D': cout << "Enter a string (up to 99 characters): " << endl;
+            cin.getline(userSentence, SIZE);
+            break;
+        case 'e'://exit the program
+        case 'E':cout << "ending...";
+                exit(0);
+        default:
+            cout << "You typed in an option not available!" << endl;
+    }
+    return 0;
+}
+
+int VowelLetters(char *sentence)
+{
+    int total = 0;
+    
+    //character is not null
+    while (*sentence != '\0')
+    {
+        //if sentence equals a, e, i, o ,u then count
+        if ((*sentence == 'a') || (*sentence == 'A') || (*sentence == 'e') || (*sentence == 'E') || (*sentence == 'i') || (*sentence == 'I') || (*sentence == 'o') || (*sentence == 'O') || (*sentence == 'u') || (*sentence == 'U'))
+        {
+            total++;
+            sentence++;
+        }
+        sentence++; //move to the next
+    }
+    return total;
+}
+
+int ConsonantLetters(char *sentence)
+{
+    int total = 0;
+    
+    //character is not null
+    while (*sentence != '\0')
+    {
+        //if sentence not equals a, e, i, o ,u then count
+        if ((*sentence != 'a') || (*sentence != 'A') || (*sentence != 'e') || (*sentence != 'E') || (*sentence != 'i') || (*sentence != 'I') || (*sentence != 'o') || (*sentence != 'O') || (*sentence != 'u') || (*sentence != 'U'))
+        {
+            total++;
+            sentence++;
+        }
+        sentence++; //move to the next
+    }
+    return total;
+}
