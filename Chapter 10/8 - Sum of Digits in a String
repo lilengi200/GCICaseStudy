@@ -1,0 +1,71 @@
+#include <iostream>
+#include <cctype>
+#include <string> //string class
+#include <cmath> // math function
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+int main()
+{
+    //10.8 - Sum of Digits in a String - Coded by: Quanysha Jones
+    //Write a program that asks the user to enter a series of single digit numbers with nothing separating them. 
+    //read the input as a c-string or a string object. the program should display the sum of all the single- digit 
+    //numbers in the string. for example, if the user enters 2514, the program should display 12, which is the 
+    //sum of 2, 5, 1, and 4. the program should also display the highest and lowest digits in the string.
+    
+    const int SIZE = 81;
+    char UserString[SIZE];
+    int UserNum, length, total = 0, count = 0;
+    
+    cout << "This program will ask a user to enter a series of single digit numbers with " << endl;
+    cout << "nothing separating them..and the program will display the addtion of the numbers." << endl;
+    cout << "Enter a series of single digits (example: 2514): ";
+    cin.getline(UserString,SIZE);
+    
+    //get length
+    length = strlen(UserString);
+    
+    //convert to int
+    UserNum = atoi(UserString);
+    
+    for (count = 0; count < length; count++)
+    {
+        while(!isdigit(UserString[count]))
+        {
+            cout << "This string contains characters other than intergers." << endl;
+        }
+    }
+    
+    while (UserNum > 0)
+    {
+        total += UserNum % 10; //stores remainder in total anbd add during the loop
+        UserNum /= 10; //divide user input until its gets to zero
+    }
+    
+    cout << "The total of the integers entered is " << total << "." << endl;
+    
+    //initialize lowest and highest with first element
+    char Largest = UserString[0],
+         Smallest = UserString[0];
+    
+    for (int count = 0; count < length; count ++)
+     {
+         if (UserString[count] < Smallest) // finds the Smallest
+         {
+             Smallest = UserString[count];
+         }
+         if (UserString[count] > Largest) //finds the largest
+         {
+             Largest = UserString[count];
+         }
+     }
+    
+    cout << "The Largest number is " << Largest << " and the Smallest is " << Smallest << endl;
+
+    return 0;
+}
