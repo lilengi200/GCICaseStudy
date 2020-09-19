@@ -14,7 +14,7 @@ char LetterCount(char *, int);
 
 int main()
 {
-    //10.8 - Sum of Digits in a String - Coded by: Quanysha Jones
+    //10.9 - Most Frequent Characters  - Coded by: Quanysha Jones
     //Write a function that accepts either a pointer to a c-string or a string object as 
     //its argument. the function should return the character that appears most frequently 
     //in the strong. demonstrate the function in a complete program.
