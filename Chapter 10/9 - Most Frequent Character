@@ -1,0 +1,60 @@
+#include <iostream>
+#include <cctype>
+#include <string> //string class
+#include <cmath> // math function
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+char LetterCount(char *, int);
+
+int main()
+{
+    //10.8 - Sum of Digits in a String - Coded by: Quanysha Jones
+    //Write a function that accepts either a pointer to a c-string or a string object as 
+    //its argument. the function should return the character that appears most frequently 
+    //in the strong. demonstrate the function in a complete program.
+    int length; 
+    char MaxOfLetter;
+    char Prompt[] = "im a engineer";
+    
+    cout << "This program will tell you what character appears the most in this sentence:" << endl;
+    cout << "im a engineer" << endl;
+    cout << endl;
+    
+    //get the length
+    length = strlen(Prompt);
+    
+    //calling of function
+    MaxOfLetter = LetterCount(Prompt,length);
+    cout << "The character " << MaxOfLetter << " appeared the most." << endl;
+    
+    return 0;
+}
+
+char LetterCount(char *sentence, int stringLength)
+{
+    // Create array to keep the count of individual 
+	// characters and initialize the array as 0 
+    const int SIZE = 256;
+    
+    int count[SIZE] = {0}; // Initialize max count
+    int max = 0; // Initialize result 
+    char value; 
+    
+    for (int count1 = 0; count1 < stringLength; count1++)
+    {
+        count[sentence[count1]]++; 
+        if (max < count[sentence[count1]])
+        {
+            max = count[sentence[count1]]; //keep count of letter
+            value = sentence[count1]; //keeps track of which letter is most used
+        }
+    }
+    
+    return value;
+}
