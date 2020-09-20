@@ -14,7 +14,7 @@ string replaceSubstring(string, string, string);
 
 int main()
 {
-    //10.10 - ReplaceSsubstring Function - Coded by: Quanysha Jones
+    //10.10 - ReplaceSubstring Function - Coded by: Quanysha Jones
     //write a function named replacesubstring. the function should accept three c string or string object arguments. let's call them string1, string2, and string3. it should search string1 for all occurances of string2. when it finds an occurence of string2, it should replace it with string3. write these three arguments, the function would return a string OBJECT WITH THE VALUE "that dog jumped over that fence." demonstrate the function in a complete program .
     
     string string1, string2 , string3;
@@ -41,7 +41,7 @@ string replaceSubstring(string str1, string str2, string str3)
 {
     size_t pos = 0;
     
-    while ((pos = str1.find(str2,pos)) != std::string::npos)
+    while ((pos = str1.find(str2,pos)) != string::npos)
     {
         str1.replace(pos,str2.length(),str3);
         pos += str3.length();
