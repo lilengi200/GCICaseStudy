@@ -1,0 +1,50 @@
+#include <iostream>
+#include <cctype>
+#include <string> //string class
+#include <cmath> // math function
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+string replaceSubstring(string, string, string);
+
+int main()
+{
+    //10.10 - ReplaceSsubstring Function - Coded by: Quanysha Jones
+    //write a function named replacesubstring. the function should accept three c string or string object arguments. let's call them string1, string2, and string3. it should search string1 for all occurances of string2. when it finds an occurence of string2, it should replace it with string3. write these three arguments, the function would return a string OBJECT WITH THE VALUE "that dog jumped over that fence." demonstrate the function in a complete program .
+    
+    string string1, string2 , string3;
+    
+    cout << "This program will find the 2nd string and replace it with the 3rd string..." << endl;
+    cout << "Enter string 1: ";
+    getline(cin, string1);
+    cout << endl;
+    cout << "Enter string 2: ";
+    getline(cin, string2);
+    cout << endl;
+    cout << "Enter string 3: ";
+    getline(cin, string3);
+    cout << endl;
+    
+    string1 = replaceSubstring(string1, string2, string3);
+
+    cout << string1 << endl;
+    
+    return 0;
+}
+
+string replaceSubstring(string str1, string str2, string str3)
+{
+    size_t pos = 0;
+    
+    while ((pos = str1.find(str2,pos)) != std::string::npos)
+    {
+        str1.replace(pos,str2.length(),str3);
+        pos += str3.length();
+    }
+    return str1;
+}
