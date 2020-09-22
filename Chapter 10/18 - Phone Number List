@@ -1,0 +1,68 @@
+#include <iostream>
+#include <cctype>
+#include <string> //string class
+#include <cmath> // math function
+#include <iomanip>
+#include <cstdlib> //for atoi
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+//void PrintDate(char *, int);
+int main()
+{
+    //10.18 - Phone Number List - Coded by: Quanysha Jones
+    //write a program that has an array of at least 10 string objects that hold people's 
+    //name and phone numbers. "Becky Warren, 555-1223", "Joe Looney, 555-0097", 
+    //"Geri Palmer, 555-8787", "Lynn Presnell, 555-1212", "Holly Gaddis, 555-8878", 
+    //"Sam Wiggins, 555-0998", "Bob Kain, 555-8712", "Tim Haynes, 555-7676", 
+    //"Warren Gaddis, 555-9037", "Jean James, 555-4939", "Ron Palmer, 555-2783" 
+    //The program should ask the user to enter a name or partial 
+    //name to search for in the array. any entries in the array that match the string 
+    //entered should be displayed. for example, if the user enters 'Palmer' the program 
+    //should display the following names from the list: geri palmer, 555-8787 ron palmer, 555-2783.
+    const int Name_Phone_Num = 10; //number of people
+    const int SIZE = 24; //string length
+    string People[SIZE] = {"Becky Warren, 555-1223",  
+                                            "Joe Looney, 555-0097", 
+                                            "Geri Palmer, 555-8787", 
+                                            "Lynn Presnell, 555-1212", 
+                                            "Holly Gaddis, 555-8878", 
+                                            "Sam Wiggins, 555-0998", 
+                                            "Bob Kain, 555-8712", 
+                                            "Tim Haynes, 555-7676", 
+                                            "Warren Gaddis, 555-9037", 
+                                            "Jean James, 555-4939", 
+                                            "Ron Palmer, 555-2783"}; 
+    
+    char lookup[SIZE];//to hold user input
+    size_t strFound; //to point to the found product
+    int i=0;
+    
+    cout << "Enter a name or partial name to search for in the database: ";
+    cin.getline(lookup,SIZE);
+    
+    //Find the name in all string objects
+    for (int count = 0; count < Name_Phone_Num; count++)
+    {
+        //if the name is found in the string, the starting
+        //position of name is returned into strPos
+        strFound = People[count].find(lookup);
+        //strPos equal to no postions, if the name is not found in the string
+        if (strFound != string::npos)
+        {
+            //Print the string, in which the entered name is found
+            cout << People[count] << endl;
+            i++; //Increase the count
+        }
+    }
+    //count will be 0,if there are no matchings
+    if (i == 0)
+    {
+        cout << "No match found" << endl;
+    }
+    
+    return 0;
+}    
