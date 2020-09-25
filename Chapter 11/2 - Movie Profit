@@ -1,0 +1,129 @@
+#include <iostream>
+#include <cctype>
+#include <string> //string class
+#include <cmath> // math function
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+//const int SIZE = 30;
+
+struct MovieData
+{
+    char Title[30];
+    char Director[20];
+    int Year_Released;
+    int Running_Time; //in minutes
+    int Production;
+    int Revenue;
+};
+
+void getMovieData(MovieData &, MovieData &);
+void DisplayMovieData(MovieData, MovieData);
+
+int main()
+{
+    //11.2 - Movie Profit - Coded by: Quanysha Jones
+    //Modify the Movie Data program written for pprogramming challenge 1 to include two additional members that hold the movie's production costs and first year revenues. modify the function that displays the movie data to display the title, director, release year, running time and first year's profit or loss.
+    
+    //Write a program that uses a structure named MovieData to store the following information about a movie: Title, director, year released, running time(in min). the program should create two moviedata variables, store values in their members, and pass each one, in turn, to a function that displays the information about the movie in a clearly formatted matter.
+    
+    MovieData movie1, movie2;
+    
+    getMovieData(movie1, movie2); //user input called
+    DisplayMovieData(movie1, movie2); //displayed
+    
+    return 0;
+}
+
+void getMovieData(MovieData &m1, MovieData &m2) //uses a reference parameter
+{
+    cout << "***1st Movie***" << endl;
+    cout << "\tWhat is the title of the 1st movie?  ";
+    //cin.ignore();
+    cin.getline(m1.Title, 30);
+    cout << endl;
+    cout << "\tWhat is the director of this movie?  ";
+    //cin.ignore();
+    cin.getline(m1.Director, 20);
+    cout << endl;
+    cout << "\tWhat was the year it was released? ";
+    cin >> m1.Year_Released;
+    cout << endl;
+    cout << "\tHow long is the movie (in minutes)? ";
+    cin >> m1.Running_Time;
+    cout << endl;
+    cout << "\tWhat did it cost to produce this movie? ";
+    cin >> m1.Production;
+    cout << endl;
+    cout << "\tFirst year's Revenue? ";
+    cin >> m1.Revenue;
+    
+    cout << "***2nd MOVIE***" << endl;
+    cout << "\tWhat is the title of the 2nd movie?  ";
+    cin.ignore();
+    cin.getline(m2.Title, 30);
+    cout << endl;
+    cout << "\tWhat is the director of this movie?  ";
+    //cin.ignore();
+    cin.getline(m2.Director, 20);
+    cout << endl;
+    cout << "\tWhat was the year it was released? ";
+    cin >> m2.Year_Released;
+    cout << endl;
+    cout << "\tHow long is the movie (in minutes)? ";
+    cin >> m2.Running_Time;
+    cout << "\tWhat did it cost to produce this movie? ";
+    cin >> m2.Production;
+    cout << endl;
+    cout << "\tFirst year's Revenue? ";
+    cin >> m2.Revenue;
+    cout << endl;
+    
+}
+
+void DisplayMovieData(MovieData m1, MovieData m2)
+{
+    
+    int profit1, profit2;
+    
+    profit1 = m1.Revenue - m1.Production;
+    profit2 = m2.Revenue - m2.Production;
+    
+    cout << "..1st Movie.." << endl;
+    cout << "\tTitle: " << m1.Title << endl;
+    cout << "\tDirected by: " << m1.Director << endl;
+    cout << "\tYear Released: " << m1.Year_Released << endl;
+    cout << "\tRunning Time (in minutes): " << m1.Running_Time << endl;
+    cout << endl;
+    cout << "..2nd Movie.." << endl;
+    cout << "\tTitle: " << m2.Title << endl;
+    cout << "\tDirected by: " << m2.Director << endl;
+    cout << "\tYear Released: " << m2.Year_Released << endl;
+    cout << "\tRunning Time (in minutes): " << m2.Running_Time << endl;
+    
+    if (m1.Production < m1.Revenue)
+    {
+        //if production is less than rev than it was profit
+        cout << m1.Title << " profit $" << profit1<< endl;
+    }
+    else
+    {
+        cout << m1.Title << " are in the hole at $" << profit1 << endl;
+    }
+    
+    if (m2.Production < m2.Revenue)
+    {
+        //if production is less than rev than it was profit
+        cout << m2.Title << " profit $" << profit2 << endl;
+    }
+    else
+    {
+        cout << m2.Title << " are in the hole at $" << profit2 << endl;
+    }
+    
+}
