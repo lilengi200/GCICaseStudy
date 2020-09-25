@@ -1,0 +1,91 @@
+#include <iostream>
+#include <cctype>
+#include <string> //string class
+#include <cmath> // math function
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+//const int SIZE = 30;
+
+struct MovieData
+{
+    char Title[30];
+    char Director[20];
+    int Year_Released;
+    int Running_Time; //in minutes
+};
+
+void getMovieData(MovieData &, MovieData &);
+void DisplayMovieData(MovieData, MovieData);
+
+int main()
+{
+    //11.1 - Movie Data - Coded by: Quanysha Jones
+    //Write a program that uses a structure named MovieData to store the following information about a movie: 
+    //Title, director, year released, running time(in min). the program should create two moviedata variables, 
+    //store values in their members, and pass each one, in turn, to a function that displays the information 
+    //about the movie in a clearly formatted matter.
+    
+    MovieData movie1, movie2;
+    
+    getMovieData(movie1, movie2); //user input called
+    DisplayMovieData(movie1, movie2); //displayed
+    
+    return 0;
+}
+
+void getMovieData(MovieData &m1, MovieData &m2) //uses a reference parameter
+{
+    cout << "***1st Movie***" << endl;
+    cout << "\tWhat is the title of the 1st movie?  ";
+    //cin.ignore();
+    cin.getline(m1.Title, 30);
+    cout << endl;
+    cout << "\tWhat is the director of this movie?  ";
+    //cin.ignore();
+    cin.getline(m1.Director, 20);
+    cout << endl;
+    cout << "\tWhat was the year it was released? ";
+    cin >> m1.Year_Released;
+    cout << endl;
+    cout << "\tHow long is the movie (in minutes)? ";
+    cin >> m1.Running_Time;
+    cout << endl;
+    
+    cout << "***2nd MOVIE***" << endl;
+    cout << "\tWhat is the title of the 2nd movie?  ";
+    cin.ignore();
+    cin.getline(m2.Title, 30);
+    cout << endl;
+    cout << "\tWhat is the director of this movie?  ";
+    //cin.ignore();
+    cin.getline(m2.Director, 20);
+    cout << endl;
+    cout << "\tWhat was the year it was released? ";
+    cin >> m2.Year_Released;
+    cout << endl;
+    cout << "\tHow long is the movie (in minutes)? ";
+    cin >> m2.Running_Time;
+    
+}
+
+void DisplayMovieData(MovieData m1, MovieData m2)
+{
+    cout << "..1st Movie.." << endl;
+    cout << "\tTitle: " << m1.Title << endl;
+    cout << "\tDirected by: " << m1.Director << endl;
+    cout << "\tYear Released: " << m1.Year_Released << endl;
+    cout << "\tRunning Time (in minutes): " << m1.Running_Time << endl;
+    cout << endl;
+    cout << "..2nd Movie.." << endl;
+    cout << "\tTitle: " << m2.Title << endl;
+    cout << "\tDirected by: " << m2.Director << endl;
+    cout << "\tYear Released: " << m2.Year_Released << endl;
+    cout << "\tRunning Time (in minutes): " << m2.Running_Time << endl;
+    
+}
