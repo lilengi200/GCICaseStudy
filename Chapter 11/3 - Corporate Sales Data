@@ -49,7 +49,10 @@ void DisplayDivisonData(East, West, North, South);
 int main()
 {
     //11.3 - Corporate Sales Data - Coded by: Quanysha Jones
-    //Write a program that uses a structure to store the following data on a company divison. The program should use four variables of this structure. each variable should represent one of the following corporate divisions: East, West, North, and South. The user should be asked for the four quarters' sales figure for each divison. eacj division's total and average sales should be calculated and stored in the approproate member of each structure variable. these figures should then be displayed on the screen.
+    //Write a program that uses a structure to store the following data on a company divison. The program should use four variables of this structure. 
+    //each variable should represent one of the following corporate divisions: East, West, North, and South. The user should be asked for the four 
+    //quarters' sales figure for each divison. eacj division's total and average sales should be calculated and stored in the approproate member of 
+    //each structure variable. these figures should then be displayed on the screen.
     
     East E_Divison; West W_Divison; North N_Divison; South S_Divison; //define structure variable
     
