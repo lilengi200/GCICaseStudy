@@ -1,0 +1,110 @@
+#include <iostream>
+#include <cctype>
+#include <string> //string class
+#include <cmath> // math function
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+const int Num_Of_Players = 2;
+
+struct Soccer
+{
+    char Name[30]; //player's name
+    int Player_Num; //player's number
+    int score; //points scored by players
+};
+
+void getScore(Soccer &);
+void showScore(Soccer);
+int totalPoints(Soccer [], int);
+void showHighScore(Soccer [], int);
+
+int main()
+{
+    //11.6 - Soccer Scores - Coded by: Quanysha Jones
+    //Write a program that stores the following data about a soccer player in a structure. the program should keep an array of 12 of these structures. each element is for a different player on a team. When the program runs it should ask the user to enter the data for each player. it should then show a table that lists each player's number, name and points scored. the program should also calculate and display the total points earned by the team. the number and name of the player who has earned the most points should also be displayed.
+    
+    Soccer player[Num_Of_Players]; //12 players need to be called
+   
+    
+    for (int count = 0; count < Num_Of_Players; count++)
+    {
+        cout << "Player #" << (count +1) << endl;
+        //cout << "**********" << endl;
+        //call the function with player info being requested
+        getScore(player[count]);
+    }
+    
+    cout << endl;
+    cout.width(20);
+    cout.setf(ios::left);
+    cout << "NAME";
+    cout.width(10);
+    cout << "NUMBER";
+    cout.width(10);
+    cout << "POINTS SCORED" << endl;
+    for (int count = 0; count < Num_Of_Players; count++)
+    {
+        //call function that will show stats
+        showScore(player[count]);
+        
+    }
+    //call function that stores total points
+    cout << "TOTAL POINTS: " << totalPoints(player, Num_Of_Players) << endl;
+    
+    showHighScore(player, Num_Of_Players);
+
+    
+    return 0;
+}
+
+void getScore(Soccer &p)
+{
+    cout << "\tName: " ;
+    cin.getline(p.Name,30);
+    cout << "\t" << p.Name << "'s Number: ";
+    cin >> p.Player_Num;
+    cout << "\t" << p.Name << "'s points scored: ";
+    cin >> p.score;
+    cin.ignore();
+
+}
+//prints the data in a column
+void showScore(Soccer p)
+{
+    //cout << endl;
+    cout << setw(20) << p.Name;
+    cout << setw(12) << p.Player_Num;
+    cout << setw(12) << p.score << endl;
+}
+
+int totalPoints(Soccer p[], int size)
+{
+    int total = 0.0;
+    for (int count = 0; count < size; count++)
+    {
+        total += p[count].score;
+    }
+    
+    return total;
+}
+
+void showHighScore(Soccer p[], int size)
+{
+    int highest = 0, highestScore = p[0].score;
+    
+    for (int count = 0; count < size; count++)
+    {
+        if (p[count].score > highestScore)
+        {
+            highest = count;
+            highestScore = p[count].score;
+        }
+    }
+    cout << "Player #" << p[highest].Player_Num << ", " <<  p[highest].Name << ", earned the highest points!!" << endl;
+}
