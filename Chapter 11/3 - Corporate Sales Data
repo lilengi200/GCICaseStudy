@@ -1,0 +1,160 @@
+#include <iostream>
+#include <cctype>
+#include <string> //string class
+#include <cmath> // math function
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+
+using namespace std;
+
+const int SIZE = 4;
+
+struct East
+{
+    double quarter[SIZE]; //array for each 4 quarters
+    double TotalSales;
+    double AverageSales;
+};
+
+struct West
+{
+    double quarter[SIZE]; //array for each 4 quarters
+    double TotalSales;
+    double AverageSales;
+};
+
+struct North
+{
+    double quarter[SIZE]; //array for each 4 quarters
+    double TotalSales;
+    double AverageSales;
+};
+
+struct South
+{
+    double quarter[SIZE]; //array for each 4 quarters
+    //double Second_Q;
+    //double Thrid_Q;
+    //double Fourth_Q;
+    double TotalSales;
+    double AverageSales;
+};
+
+void getDivisonData(East &, West &, North &, South &);
+void DisplayDivisonData(East, West, North, South);
+
+int main()
+{
+    //11.3 - Corporate Sales Data - Coded by: Quanysha Jones
+    //Write a program that uses a structure to store the following data on a company divison. The program should use four variables of this structure. each variable should represent one of the following corporate divisions: East, West, North, and South. The user should be asked for the four quarters' sales figure for each divison. eacj division's total and average sales should be calculated and stored in the approproate member of each structure variable. these figures should then be displayed on the screen.
+    
+    East E_Divison; West W_Divison; North N_Divison; South S_Divison; //define structure variable
+    
+    getDivisonData(E_Divison, W_Divison, N_Divison, S_Divison);
+    DisplayDivisonData(E_Divison, W_Divison, N_Divison, S_Divison);
+    
+    
+    return 0;
+}
+
+void getDivisonData(East &e, West &w, North &n, South &s) //uses a reference parameter
+{
+    //get sales figure for each quarter
+    cout << "****East Division****" << endl;
+    for (int count = 0; count < SIZE; count++)
+    {
+        cout << "\tEnter the sales figure for quarter #" << (count + 1) << ": ";
+        cin >> e.quarter[count];
+    }
+    //this will add up the total sales for east division
+    for (int i= 0; i < SIZE; i++)
+    {
+        e.TotalSales += e.quarter[i];
+    }
+    
+    //cal average
+    e.AverageSales = (double)e.TotalSales/4;
+    cout << endl;
+    
+    //west division data
+    cout << "****West Division****" << endl;
+    for (int count = 0; count < SIZE; count++)
+    {
+        cout << "Enter the sales figure for quarter #" << (count + 1) << ": ";
+        cin >> w.quarter[count];
+    }
+    //this will add up the total sales for west division
+    for (int i= 0; i < SIZE; i++)
+    {
+        w.TotalSales += w.quarter[i];
+    }
+    //cal average
+    w.AverageSales = (double)w.TotalSales/4;
+    cout << endl;
+    
+    //north division data
+    cout << "****North Division****" << endl;
+    for (int count = 0; count < SIZE; count++)
+    {
+        cout << "Enter the sales figure for quarter #" << (count + 1) << ": ";
+        cin >> n.quarter[count];
+    }
+    
+    for (int i= 0; i < SIZE; i++)
+    {
+        n.TotalSales += n.quarter[i];
+    }
+       
+    //cal average
+    n.AverageSales = (double)n.TotalSales/4;
+    cout << endl;
+
+    //south division data
+    cout << "****South Division****" << endl;
+    for (int count = 0; count < SIZE; count++)
+    {
+        cout << "Enter the sales figure for quarter #" << (count + 1) << ": ";
+        cin >> s.quarter[count];
+    }
+    
+    for (int i= 0; i < SIZE; i++)
+    {
+        s.TotalSales += s.quarter[i];
+    }
+       
+    //cal average
+    s.AverageSales = (double)s.TotalSales/4;
+    cout << endl;
+    
+    
+    
+}
+
+void DisplayDivisonData(East e, West w, North n, South s)
+{
+    cout << fixed << showpoint << setprecision(2);
+    cout << "**East Division**" << endl;
+    cout << "\tTotal Sales: $" << e.TotalSales << endl;
+    cout << "\tAverage Per Quarter: $" << e.AverageSales << endl;
+    cout << endl;
+    
+    cout << "**West Division**" << endl;
+    cout << "\tTotal Sales: $" << w.TotalSales << endl;
+    cout << "\tAverage Per Quarter: $" << w.AverageSales << endl;
+    cout << endl;
+    
+    cout << "**North Division**" << endl;
+    cout << "\tTotal Sales: $" << n.TotalSales << endl;
+    cout << "\tAverage Per Quarter: $" << n.AverageSales << endl;
+    cout << endl;
+    
+    cout << "**South Division**" << endl;
+    cout << "\tTotal Sales: $" << s.TotalSales << endl;
+    cout << "\tAverage Per Quarter: $" << s.AverageSales << endl;
+    cout << endl;
+   
+    
+}
