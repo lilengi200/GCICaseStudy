@@ -1,0 +1,190 @@
+ #include <iostream>
+#include <iomanip>
+using namespace std;
+
+//const int Num_of_Expenses = 10;
+const double housing = 500.00;
+const double utilities = 150.00;
+const double household_expenses = 65.00;
+const double transportation = 50.00;
+const double food = 250.00;
+const double medical = 30.00;
+const double insurance = 100.00;
+const double entertainment = 150.00;
+const double clothing = 75.00;
+const double miscellaneous = 50.00;
+
+struct MonthlyBudget
+{
+    double U_housing;
+    double U_utilities;
+    double U_household_expenses;
+    double U_transportation;
+    double U_food;
+    double U_medical;
+    double U_insurance;
+    double U_entertainment;
+    double U_clothing;
+    double U_miscellaneous;
+};
+void getSpent(MonthlyBudget &);
+void calBudget(MonthlyBudget &);
+
+
+int main()
+{
+    //11.11 - Monthly Budget - Coded by: Quanysha Jones
+    //a student has established the following budget. write a program that has a monthybudget
+    //structure designed to hold each of these expense categories. the program should pass
+    //the structure to a function that asks the user to enter the amount spent in each
+    //budget category during a month. the program should then pass the structure to a
+    //function that displays a report indicating the amount over or under in each category,
+    //as well as the amount over or under for the entire budget.
+    
+    MonthlyBudget expensese;
+    
+    //user input
+    getSpent(expensese);
+    //calculate expenses
+    calBudget(expensese);
+    
+    return 0;
+        
+}
+//this function ask what was spent
+void getSpent(MonthlyBudget &e)
+{
+    cout << "Housing: ";
+    cin >> e.U_housing;
+    cout << "\nUtilities: ";
+    cin >> e.U_utilities;
+    cout << "\nHousehold Expenses: ";
+    cin >> e.U_household_expenses;
+    cout << "\nTransportation: ";
+    cin >> e.U_transportation;
+    cout << "\nFood: ";
+    cin >> e.U_food;
+    cout << "\nMedical: ";
+    cin >> e.U_medical;
+    cout << "\nInsurance: ";
+    cin >> e.U_insurance;
+    cout << "\nEntertainment: ";
+    cin >> e.U_entertainment;
+    cout << "\nClothing: ";
+    cin >> e.U_clothing;
+    cout << "\nMiscellaneouse: ";
+    cin >> e.U_miscellaneous;
+}
+//calculate the amount over or under in each category and over monthly budget
+void calBudget(MonthlyBudget &e)
+{
+    double monthly_budget, User_Spent, total;
+    
+    if (e.U_housing > housing)
+    {
+        cout << "You're OVER budget by $" << (e.U_housing - housing) << endl;
+    }
+    else
+    {
+        cout << "You're UNDER budget by $" << (housing - e.U_housing) << endl;
+    }
+    
+    if (e.U_utilities > utilities)
+    {
+        cout << "You're OVER budget by $" << (e.U_utilities - utilities) << endl;
+    }
+    else
+    {
+        cout << "You're UNDER budget by $" << (utilities - e.U_utilities) << endl;
+    }
+    
+    if (e.U_household_expenses > household_expenses)
+    {
+        cout << "You're OVER budget by $" << (e.U_household_expenses - household_expenses) << endl;
+    }
+    else
+    {
+        cout << "You're UNDER budget by $" << (household_expenses - e.U_household_expenses) << endl;
+    }
+    
+    if (e.U_transportation > transportation)
+    {
+        cout << "You're OVER budget by $" << (e.U_transportation - transportation) << endl;
+    }
+    else
+    {
+        cout << "You're UNDER budget by $" << (transportation - e.U_transportation) << endl;
+    }
+    
+    if (e.U_food > food)
+    {
+        cout << "You're OVER budget by $" << (e.U_food - food) << endl;
+    }
+    else
+    {
+        cout << "You're UNDER budget by $" << (food - e.U_food) << endl;
+    }
+    if (e.U_medical > medical)
+    {
+        cout << "You're OVER budget by $" << (e.U_medical - medical) << endl;
+    }
+    else
+    {
+        cout << "You're UNDER budget by $" << (medical - e.U_medical) << endl;
+    }
+    
+    if (e.U_insurance > insurance)
+    {
+        cout << "You're OVER budget by $" << (e.U_insurance - insurance) << endl;
+    }
+    else
+    {
+        cout << "You're UNDER budget by $" << (insurance - e.U_insurance) << endl;
+    }
+    
+    if (e.U_entertainment > entertainment)
+    {
+        cout << "You're OVER budget by $" << (e.U_entertainment - entertainment) << endl;
+    }
+    else
+    {
+        cout << "You're UNDER budget by $" << (entertainment - e.U_entertainment) << endl;
+    }
+    
+    if (e.U_clothing > clothing)
+    {
+        cout << "You're OVER budget by $" << (e.U_clothing - clothing) << endl;
+    }
+    else
+    {
+        cout << "You're UNDER budget by $" << (clothing - e.U_clothing) << endl;
+    }
+    
+    if (e.U_miscellaneous > miscellaneous)
+    {
+        cout << "You're OVER budget by $" << (e.U_miscellaneous - miscellaneous) << endl;
+    }
+    else
+    {
+        cout << "You're UNDER budget by $" << (miscellaneous - e.U_miscellaneous) << endl;
+    }
+    
+    monthly_budget = housing + utilities + household_expenses + transportation + food + medical + insurance + entertainment + clothing + miscellaneous;
+    User_Spent = e.U_housing + e.U_utilities + e.U_household_expenses + e.U_transportation + e.U_food + e.U_medical + e.U_insurance + e.U_entertainment + e.U_clothing + e.U_miscellaneous;
+    
+    
+    //compare monthly budget and total spent
+    if (monthly_budget > User_Spent)
+    {
+        //under budget
+        total = monthly_budget - User_Spent;
+        cout << "You're under budget for the month. You saved $" << total << endl;
+    }
+    else
+    {
+        //over budget
+        total = User_Spent - monthly_budget;
+        cout << "You're over budget for the month. You're over $" << total << endl;
+        
+    }
+}
