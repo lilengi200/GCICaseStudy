@@ -1,0 +1,112 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+struct TEST
+{
+    string name;  //student name
+    int idName;     //student id number
+    int *tests;  //pointer to an array of test scores
+    double average; //average test scores
+    char grade;     //course grade
+};
+
+
+int main()
+{
+    //11.12 - Course Grades - Coded by: Quanysha Jones
+    //Write a program that uses a structure that stores: name idnum, test, average and grade. the program should keep a list of test scores for a group of students. it should ask the user how many test scores there are to be and how manu students there are. it should then dymanically allocate an array of structures. each structure's TESTS member should point to a dynamically allocated array that will hold the test scores. after the arrays have been dynamically allocated, the program should ask for the id number and all the test scores for each student. the average test score should be called and stored in the average member of each structure. the course grade should be computed on the basis of the following grading scale: 91-100 = A, 81-90 = B, 71 - 80 = C, 61 - 70 = D, 60 & below = F. the course grade should then be stored in the GRADE member of each structure. once all this data is calculated, a table should be displayed on the screen listing each student's name, ID number, average test score, and course grade.
+    
+    TEST student;
+    int NumOfStudents, NumOfTest;
+    
+    
+    cout << "How many students are taking the test? ";
+    cin >> NumOfStudents;
+    cout << "\nHow many test per student? ";
+    cin >> NumOfTest;
+    
+    //dynamically allocate array that will hold num student.
+    TEST *ptr;
+    ptr = new TEST[NumOfStudents];
+    
+    for (int count = 0; count < NumOfTest; count++)
+    {
+        ptr[count].tests = new int[NumOfTest];
+    }
+    
+    //for loop for displaying students information
+    for (int count = 0; count < NumOfStudents; count++)
+    {
+        cout << "\nWhat is your name? " ;
+        //cin.ignore();
+        cin >> ptr[count].name;
+        cout << "\nStudent iD Number: ";
+        cin >> ptr[count].idName;
+        
+        for (int i =0; i < NumOfTest; i++)
+        {
+            cout << "\tEnter your test score #" << (i + 1) << ": ";
+            cin >> ptr[count].tests[i];
+            //no negative or outrange numbers
+            while (ptr[count].tests[i] < 0 || ptr[count].tests[i] > 100)
+            {
+                cout << "invaild score. Please enter a score between 0 - 100: ";
+                cin >> ptr[count].tests[i];
+            }
+        }
+    }
+    //find average of student test
+    for (int count = 0; count < NumOfStudents; count++)
+    {
+        double total = 0;  //accumlator
+        for (int i = 0; i < NumOfTest; i++)
+        {
+            total += ptr[count].tests[i];
+            //determine average
+            ptr[count].average = double(total)/ NumOfTest;
+            
+            //accept average test score, find the grade and return it
+            if (ptr[count].average >= 91 && ptr[count].average <= 100) //grade for A
+            {
+                ptr[count].grade = 'A';
+            }
+            else if (ptr[count].average >= 81 && ptr[count].average <= 90) //grade for B
+            {
+                ptr[count].grade = 'B';
+            }
+            else if (ptr[count].average >= 71 && ptr[count].average <= 80) //grade for C
+            {
+                ptr[count].grade = 'C';
+            }
+            else if (ptr[count].average >= 61 && ptr[count].average <= 70) //grade for D
+            {
+                ptr[count].grade = 'D';
+            }
+            else //grade for score 60 or below
+            {
+                ptr[count].grade = 'F';
+            }
+        }
+    }
+    cout << endl;
+    cout << "*****************************" << endl;
+    cout << "*\t\tGrade Book\t\t\t*" << endl;
+    cout << "*****************************" << endl;
+    //cout.width(20);
+    cout << "Name";
+    cout.width(20);
+    cout << "Student's ID";
+    cout.width(15);
+    cout << "Average";
+    cout.width(15);
+    cout << "Grade";
+    cout <<endl;
+    for (int count = 0; count < NumOfStudents; count++)
+    {
+        cout << ptr[count].name << setw(15) << ptr[count].idName << setw(15) << ptr[count].average << setw(15) << ptr[count].grade << endl;
+    }
+    
+    return 0;
+        
+}
