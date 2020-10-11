@@ -1,0 +1,172 @@
+#include <iostream>
+#include <cctype>
+#include <string> //string class
+#include <cmath> // math function
+#include <iomanip>
+#include <cstdlib> //for rand and srand
+#include <ctime> //time function
+#include <cstring> // compare c-strings library
+#include <stdlib.h>     //for srand, rand
+using namespace std;
+
+class Date
+{
+    private:
+        int month, day, year;
+    
+    public:
+        
+        void GetDate1 (int m, int d, int y)
+        {month = m; day = d; year = y;}
+        
+        void Date1 () //format for mm/dd/yy
+        {cout << month << "/" << day << "/" << year << endl;}
+    
+        void Date2 () //format for month day, year
+        {
+            if (month == 1)
+            {
+                cout << "January " << day << ", " << year << endl;
+            }
+            if (month == 2)
+            {
+                cout << "February " << day << ", " << year << endl;
+            }
+            if (month == 3)
+            {
+                cout << "March " << day << ", " << year << endl;
+            }
+            if (month == 4)
+            {
+                cout << "April " << day << ", " << year << endl;
+            }
+            if (month == 5)
+            {
+                cout << "May " << day << ", " << year << endl;
+            }
+            if (month == 6)
+            {
+                cout << "June " << day << ", " << year << endl;
+            }
+            if (month == 7)
+            {
+                cout << "July " << day << ", " << year << endl;
+            }
+            if (month == 8)
+            {
+                cout << "August " << day << ", " << year << endl;
+            }
+            if (month == 9)
+            {
+                cout << "September " << day << ", " << year << endl;
+            }
+            if (month == 10)
+            {
+                cout << "October " << day << ", " << year << endl;
+            }
+            if (month == 11)
+            {
+                cout << "November " << day << ", " << year << endl;
+            }
+            if (month == 12)
+            {
+                cout << "December " << day << ", " << year << endl;
+            }
+        }
+    
+        void Date3 () //format for day month year
+        {
+            if (month == 1)
+            {
+                cout << day << " January " << year << endl;
+            }
+            if (month == 2)
+            {
+                cout << day << " February " << year << endl;
+            }
+            if (month == 3)
+            {
+                cout << day << " March " << year << endl;
+            }
+            if (month == 4)
+            {
+                cout << day << " April " << year << endl;
+            }
+            if (month == 5)
+            {
+                cout << day << " May " << year << endl;
+            }
+            if (month == 6)
+            {
+                cout << day << " June " << year << endl;
+            }
+            if (month == 7)
+            {
+                cout << day << " July " << year << endl;
+            }
+            if (month == 8)
+            {
+                cout << day << " August " << year << endl;
+            }
+            if (month == 9)
+            {
+                cout << day << " September " << year << endl;
+            }
+            if (month == 10)
+            {
+                cout << day << " October " << year << endl;
+            }
+            if (month == 11)
+            {
+                cout << day << " November " << year << endl;
+            }
+            if (month == 12)
+            {
+                cout << day << " December " << year << endl;
+            }
+    }
+};
+
+int main()
+{
+    //13.1 - Date - Coded by: Quanysha Jones
+        //Design a class called Date. the class should store a date in three integers:
+        //month, dat, and years. There should be member functions to print the date in the
+        //following forms: 12/25/10, December 25, 2010, 25 December 2010. Demonstrate the class
+        //by writing a complete program implelmenting it. Input validation: do not accept values
+        //for the day greater than 31 or less than 1. do not accept values for month greater
+        //than 12 or less than 1.
+    
+    Date date;
+    int Mm, Dd, Yy;
+    
+    cout << "Enter the month (integers only): ";
+    cin >> Mm;
+    
+    while (Mm < 1 || Mm > 12) //do not accept values for month greater than 12 or less than 1.
+    {
+        cout << "ERROR: month is not between 1 - 12. Please re enter month: ";
+        cin >> Mm;
+    }
+    
+    cout << "Enter the day (integers only): ";
+    cin >> Dd;
+    
+    while (Dd < 1 || Dd > 31) //for the day greater than 31 or less than 1
+    {
+        cout << "ERROR: Day is not between 1 - 31. Please re enter day: ";
+        cin >> Dd;
+    }
+    
+    cout << "Enter the year (integers only): ";
+    cin >> Yy;
+    
+    date.GetDate1 (Mm, Dd, Yy);
+    date.Date1(); //format for mm/dd/yy
+    date.Date2(); //format mm dd, yy
+    date.Date3(); //format dd mm yy
+        
+    return 0;
+}
+
+
